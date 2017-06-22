@@ -11,7 +11,7 @@ For pet owners and pet lovers, who are committed to working together to reunite 
 
 Summary
 
-Not knowing where your pet is can be a nerve racking experience. Canvassing, worrying, printing fliers, making sure you've covered enough ground, is all so much to do. Seeing a lost pet, wandering around, and being worried for its saftey but unsure of how to reunite it with it's owner, might put a pit in your stomach.
+Not knowing where your pet is can be a nerve racking experience. Canvassing, worrying, printing fliers, making sure you've covered enough ground, is all so much to do. Seeing a lost pet, wandering around, and being worried for its saftey but unsure of how to reunite it with its owner might put a pit in your stomach.
 
 Pet Detective can help!
 
@@ -28,7 +28,7 @@ Through crowd sourcing, we broaden the number of people searching for a pet, or 
 
 Company Quote
 
-"Pet Detective is the app for pet lovers who know pets dont belong on the street."
+"Pet Detective helps crack the case!"
 
 How to Get Started
 
@@ -36,7 +36,7 @@ Log in with google, if you have a pet, lost or found, create a post, give a few 
 
 Customer Quote
 
-"It felt great to help reunite Fluffy with her owner!"
+"It felt great to help reunite Fluffy with her owner!" Tourne T. -New Orleans, LA
 
 Closing and Call to Action
 

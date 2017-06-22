@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/dweill/green-field/issues"
   },
-  "homepage": "https://github.com/dweill/green-field#readme"
+  "homepage": "https://github.com/dweill/green-field#readme",
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.5.0"
+  }
 }

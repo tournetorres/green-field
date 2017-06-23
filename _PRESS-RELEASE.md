@@ -1,30 +1,44 @@
 
-Project Name
+green-field
 
 Heading
 
-Name the product in a way the reader (i.e. your target customers) will understand.
+Pet Detective
+
 Sub-Heading
 
-Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+For pet owners and pet lovers, who are committed to working together to reunite pets with their owners.
+
 Summary
 
-Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+Not knowing where your pet is can be a nerve racking experience. Canvassing, worrying, printing fliers, making sure you've covered enough ground, is all so much to do. Seeing a lost pet, wandering around, and being worried for its saftey but unsure of how to reunite it with its owner might put a pit in your stomach.
+
+Pet Detective can help!
+
+With Pet Detective, we aim to make reuniting pets with their owners easier through crowd sourcing. If a pet is lost or found, post on Pet Detective, and your message can be seen by anyone checking the app for your area.
+And if you've seen someone's pet, you can let them know where you think you've saw it, to help in the search. It's all hands on deck, with Pet Detective.
+
 Problem
 
-Describe the problem your product solves.
+Pets get lost, and owners can have a difficult time getting help in searching.
+
 Solution
 
-Describe how your product elegantly solves the problem.
-Quote from You
+Through crowd sourcing, we broaden the number of people searching for a pet, or reporting sightings of a pet.
 
-A quote from a spokesperson in your company.
+Company Quote
+
+"Pet Detective helps crack the case!"
+
 How to Get Started
 
-Describe how easy it is to get started.
+Log in with google, if you have a pet, lost or found, create a post, give a few details about the pet in question, and wait. If you've seen a lost pet, but don't have it, just check the posts and click when a post describes the pet you saw.
+
 Customer Quote
 
-Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+"It felt great to help reunite Fluffy with her owner!" Tourne T. -New Orleans, LA
+
 Closing and Call to Action
 
-Wrap it up and give pointers where the reader should go next.
+Pet Detective is handy utility if you've lost a pet, or want to help someone who has.
+Go to Petdetective.com to find out more!

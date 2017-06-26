@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>Pet Detective</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+  </head>
+  <body ng-app="pet-detective">
+    <h1>Hello, Pet Detective!</h1>
+    <div ng-controller="appController"></div>
+        <div ng-controller="bulletinBoardController"></div>
+            <div ng-controller="bulletinModuleController"></div>
+              <div ng-controller="dispatchController"></div>
+                <div ng-controller="petFoundFormController"></div>
+                   <div ng-controller="petLostFormController"></div>
+                   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="mapService.js"></script>
+    <script src="components/app.js"></script>
+    <script src="map.config.js"></script>
+    <script src="components/dispatch.js"></script>
+    <script src="components/petFoundForm.js"></script>
+    <script src="components/petLostForm.js"></script>
+    <script src="components/bulletinModule.js"></script>
+    <script src="components/bulletinBoard.js"></script>
+  </body>
+</html>

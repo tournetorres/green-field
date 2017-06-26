@@ -5,5 +5,5 @@ bower_components/
 
 build/
 dist/
-map.config.js
-client/config
+/client/map.config.js
+

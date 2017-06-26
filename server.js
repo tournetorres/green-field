@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('client'));
 
+app.use(express.static('client'));
+
 connection.connect((err) => {
   if (!err) {
     console.log('Database is connected ... nn');

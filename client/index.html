@@ -12,13 +12,18 @@
   </head>
 
   <body ng-app="pet-detective">
-    <h1>Hello, Pet Detective!</h1>
-    <div ng-controller="appController"></div>
-    <div ng-controller="bulletinBoardController"></div>
-    <div ng-controller="bulletinModuleController"></div>
-    <div ng-controller="dispatchController"></div>
-    <div ng-controller="petFoundFormController">
-      <pet-found-form></pet-found-form>
+    <div class="container">
+      <h1>Hello, Pet Detective!</h1>
+      <div class="row" ng-controller="appController"></div>
+      <div ng-controller="dispatchController"></div>
+      <div class="col" ng-controller="petFoundFormController">
+        <pet-found-form></pet-found-form>
+      </div>
+      <div class="col" ng-controller="petLostFormController">
+        <pet-lost-form></pet-lost-form>
+      </div>
+      <div class="col" ng-controller="bulletinBoardController"></div>
+      <div class="col" ng-controller="bulletinModuleController"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="mapService.js"></script>

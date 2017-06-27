@@ -1,6 +1,5 @@
 angular.module('pet-detective')
   .controller('bulletinBoardController', function () {
-    console.log('I am in bulletinBoardController');
   })
   .directive('bulletinBoard', function () {
     return {

@@ -1,12 +1,9 @@
 
 angular.module('pet-detective')
   .controller('staticMapDispatchController', function ($window, $http) {
-    console.log('this is staticmapdispatch');
-    let key = 'AIzaSyBKXktrYeZhUF70D5EPOA8N0trUz-xnDCg';
-    this.staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&zoom=15&size=640x400&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=${key}`;
+    this.staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=29.9952,-90.0716&zoom=15&size=555x325&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=${window.STATIC_API_KEY}`;
     $http.get(this.staticMapUrl)
       .then((response) => {
-        // console.log(response.data);
       })
       .catch((err) => {
         console.error(err);
@@ -14,11 +11,12 @@ angular.module('pet-detective')
   })
   .directive('staticMapDispatch', function staticMapDispatchDirective() {
     return {
-      scope: {},
+      scope: {
+      },
       restrict: 'E',
       controller: 'staticMapDispatchController',
       controllerAs: 'ctrl',
       bindToController: true,
-      template: '<div>poop</div>',
+      template: '<img ng-src="{{ctrl.staticMapUrl}}"/>',
     };
   });

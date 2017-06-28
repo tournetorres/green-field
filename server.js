@@ -15,6 +15,7 @@ const connection = mysql.createConnection({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('client'));
 
 app.use(express.static('client'));
 
@@ -27,3 +28,4 @@ connection.connect((err) => {
 });
 
 app.listen(PORT, () => console.log('listening on', PORT));
+

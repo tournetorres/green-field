@@ -5,8 +5,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT;
+const DB = process.env.DB || 'localhost';
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: DB,
   user: 'root',
   password: '',
   database: 'petdetective',

@@ -4,40 +4,37 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <title>Pet Detective</title>
     <link href="styles.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
 
   <body ng-app="pet-detective">
-    
-    <div class="container">
-        <h1>Hello, Pet Detective!</h1>
-        <div class="row">
-        <div ng-controller="appController">
-          
-     
-          <div class="col-md-13" ng-controller="dispatchController">
-            <dispatch></dispatch>
-   
-          </div>
-          <div class="col-md-6" ng-controller="petFoundFormController">
-            <pet-found-form></pet-found-form>
-          </div>
-          <div class="col-md-6" ng-controller="petLostFormController">
-            <pet-lost-form></pet-lost-form>
-          </div>
-        
-          <div class="col" ng-controller="bulletinBoardController">
-            <div ng-controller="bulletinModuleController"></div>
-          </div>
-       </div>
-      </div>
 
-        
-    </div>    
+    <div class="container">
+
+        <h1>Hello, Pet Detective!</h1>
+      <div class="row">
+      <div ng-controller="appController">
+        <div class="col-md-13" ng-controller="dispatchController">
+          <dispatch></dispatch>
+        </div>
+        <div class="col-md-6" ng-controller="petFoundFormController">
+          <pet-found-form></pet-found-form>
+        </div>
+        <div class="col-md-6" ng-controller="petLostFormController">
+          <pet-lost-form></pet-lost-form>
+        </div>
+
+
+        <div class="col" ng-controller="bulletinBoardController">
+          <div ng-controller="bulletinModuleController"></div>
+        </div>
+      </div>
+      </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="map.config.js"></script>
     <script src="components/app.js"></script>

@@ -30,6 +30,6 @@ connection.connect((err) => {
 app.listen(PORT, () => console.log('listening on', PORT));
 
 app.post('/bulletins', function(req, res) {
-  console.log(req.body);
+  console.log(req.body.config);
   res.send(200);
 });

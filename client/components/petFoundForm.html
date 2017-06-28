@@ -1,34 +1,20 @@
-
-    
-<!--<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>    -->
-      <form class="row" style="background-color:lavender;">
-        <div class="form-group">
-          <div>{{ctrl.found}}</div>
-            <!--<div class="dropdown">-->
-		        <!--<button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-            Choose Animal Type<span class="caret"></span>
-            </button>-->
-              <!--<label for="singleSelect"> Choose Animal Type </label><br>
-            <select name="singleSelect" ng-model="ctrl.data.singleSelect" class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu1">-->
-               <label for="singleSelect"> Choose Animal Type: </label><br>
-              <select name="singleSelect" ng-model="ctrl.data.singleSelect"> 
-                <option value="{{ctrl.data.option1}}">Cat</option> <!-- interpolation -->
-                <option value="{{ctrl.data.option2}}">Dog</option>
-            </select>
-            <tt>  TYPE OF PET: {{ctrl.data.singleSelect}}</tt>
-          </div>   
-        <!--</div>  -->
-      <div class="form-group">
-        <label for="pwd">Enter Address or Intersection</label>
-        <input type="text" class="form-control" id="pwd">
-      </div>
-      <div class="form-group">
-        <label>Enter Animal Details</label>
-        <input type="text" class="form-control" id="formBody">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-
-<!--<script src="https://code.jquery.com/jquery-2.2.1.js" integrity="sha256-eNcUzO3jsv0XlJLveFEkbB8bA7/CroNpNVk3XpmnwHc=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    -->
+<form class="row" style="background-color:lavender;">
+  <div class="form-group">
+    <div>{{ctrl.found}}</div>
+      <label for="singleSelect"> Choose Animal Type: </label><br>
+        <select name="singleSelect" ng-model="ctrl.data.singleSelect"> 
+          <option value="{{ctrl.data.option1}}">Cat</option>
+          <option value="{{ctrl.data.option2}}">Dog</option>
+        </select>
+        <tt>  TYPE OF PET: {{ctrl.data.singleSelect}}</tt>
+    </div>   
+    <div class="form-group">
+      <label for="pwd">Enter Address or Intersection</label>
+      <input type="text" class="form-control" id="pwd">
+    </div>
+    <div class="form-group">
+      <label>Enter Animal Details</label>
+      <input type="text" class="form-control" id="formBody">
+    </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

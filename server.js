@@ -5,8 +5,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT;
+const DB = process.env.DB || 'localhost';
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: DB,
   user: 'root',
   password: '',
   database: 'petdetective',
@@ -14,6 +15,7 @@ const connection = mysql.createConnection({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('client'));
 
 app.use(express.static('client'));
 
@@ -26,3 +28,4 @@ connection.connect((err) => {
 });
 
 app.listen(PORT, () => console.log('listening on', PORT));
+

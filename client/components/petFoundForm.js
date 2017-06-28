@@ -1,13 +1,20 @@
 angular.module('pet-detective')
-  .controller('petFoundFormController', function () {
+  .controller('petFoundFormController', function ($http, $window) {
     this.formBody;
     this.address;
     this.type;
     this.found = 'FOUND';
     console.log('inside');
 
+    this.data = {
+      singleSelect: null,
+      multipleSelect: [],
+      option1: 'cat',
+      option2: 'dog',
+    };
+    console.log(this.data.singleSelect);
     this.submit = function ($http) {
-      
+        
     };
   })
   .directive('petFoundForm', function petFoundFormDirective() {

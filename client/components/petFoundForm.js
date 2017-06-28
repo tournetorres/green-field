@@ -21,6 +21,7 @@ angular.module('pet-detective')
         method: 'POST',
 
         data: {
+          lostOrFound: this.found,
           type: this.data.singleSelect,
           address,
           message: formBody,

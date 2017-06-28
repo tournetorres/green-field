@@ -15,23 +15,27 @@
     
     <div class="container">
         <h1>Hello, Pet Detective!</h1>
-        <div class="row" ng-controller="appController">
+        <div class="row">
+        <div ng-controller="appController">
           
      
-        <div class="col" ng-controller="dispatchController">
-          <dispatch></dispatch>
-        </div>
-        <div class="col-md-4," ng-controller="petFoundFormController">
-          <pet-found-form class="col"></pet-found-form>
-        </div>
-        <div class="col" ng-controller="petLostFormController">
-          <pet-lost-form></pet-lost-form>
-        </div>
-        <div class="col" ng-controller="bulletinBoardController"></div>
-        <div class="col" ng-controller="bulletinModuleController"></div>
-     
+          <div class="col-md-13" ng-controller="dispatchController">
+            <dispatch></dispatch>
+          </div>
+          <div class="col-md-6" ng-controller="petFoundFormController">
+            <pet-found-form></pet-found-form>
+          </div>
+          <div class="col-md-6" ng-controller="petLostFormController">
+            <pet-lost-form></pet-lost-form>
+          </div>
+        
+          <div class="col" ng-controller="bulletinBoardController">
+            <div ng-controller="bulletinModuleController"></div>
+          </div>
+       </div>
+      </div>
 
-        </div>
+        
     </div>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="mapService.js"></script>

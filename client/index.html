@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Pet Detective</title>
     <link href="styles.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -13,18 +12,22 @@
   </head>
 
   <body ng-app="pet-detective">
+
     <div class="container">
       <h1>Hello, Pet Detective!</h1>
-      <div class="row" ng-controller="appController"></div>
-      <div ng-controller="dispatchController"></div>
-      <div class="col" ng-controller="petFoundFormController">
-        <pet-found-form></pet-found-form>
+      <div class="row" ng-controller="appController">
+        <div class="col" ng-controller="dispatchController">
+          <dispatch></dispatch>
+        </div>
+        <div class="col-md-4," ng-controller="petFoundFormController">
+          <pet-found-form class="col"></pet-found-form>
+        </div>
+        <div class="col" ng-controller="petLostFormController">
+          <pet-lost-form></pet-lost-form>
+        </div>
+        <div class="col" ng-controller="bulletinBoardController"></div>
+        <div class="col" ng-controller="bulletinModuleController"></div>
       </div>
-      <div class="col" ng-controller="petLostFormController">
-        <pet-lost-form></pet-lost-form>
-      </div>
-      <div class="col" ng-controller="bulletinBoardController"></div>
-      <div class="col" ng-controller="bulletinModuleController"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="mapService.js"></script>

@@ -30,6 +30,16 @@ connection.connect((err) => {
 
 app.listen(PORT, () => console.log('listening on', PORT));
 
+app.get('/foundbulletin', function(req, res) {
+  connection.query(`select * from petfound`);
+  res.send(200);
+});
+
+app.get('/lostbulletin', function(req, res) {
+  connection.query(`select * from petlost`);
+  res.send(200);
+});
+
 app.post('/foundbulletin', function(req, res) {
   connection.query(`insert into petfound (type, address, message) values ('${req.body.type}', '${req.body.address}', '${req.body.message}')`);
   res.sendStatus(201);
@@ -40,3 +50,4 @@ app.post('/lostbulletin', function(req, res) {
   connection.query(`insert into petlost (type, address, message) values ('${req.body.type}', '${req.body.address}', '${req.body.message}')`);
   res.sendStatus(201);
 });
+

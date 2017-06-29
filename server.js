@@ -30,7 +30,12 @@ connection.connect((err) => {
 app.listen(PORT, () => console.log('listening on', PORT));
 
 app.post('/foundbulletin', function(req, res) {
-  console.log(req.body);
   connection.query(`insert into petfound (type, address, message) values ('${req.body.type}', '${req.body.address}', '${req.body.message}')`);
-  res.send(200);
+  res.sendStatus(201);
+});
+
+app.post('/lostbulletin', function(req, res) {
+  console.log(req.body);
+  connection.query(`insert into petlost (type, address, message) values ('${req.body.type}', '${req.body.address}', '${req.body.message}')`);
+  res.sendStatus(201);
 });

@@ -3,7 +3,6 @@ angular.module('pet-detective')
     this.formBody;
     this.address;
     this.type;
-    this.found = 'FOUND';
 
     this.data = {
       singleSelect: null,
@@ -11,13 +10,10 @@ angular.module('pet-detective')
       option1: 'cat',
       option2: 'dog',
     };
-    this.submit = function (type, address, formBody) {
-      console.log(address, formBody, type);
+
+    this.submit = function (address, formBody) {
       $http({
-        headers: {
-          'content-type': 'application/x-www-form-urlencoded',
-        },
-        url: '/bulletins',
+        url: '/foundbulletin',
         method: 'POST',
 
         data: {

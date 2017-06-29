@@ -13,11 +13,11 @@ const connection = mysql.createConnection({
   database: 'petdetective',
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 app.use(express.static('client'));
 
-app.use(express.static('client'));
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
 
 connection.connect((err) => {
   if (!err) {
@@ -29,7 +29,13 @@ connection.connect((err) => {
 
 app.listen(PORT, () => console.log('listening on', PORT));
 
-app.post('/bulletins', function(req, res) {
+app.post('/foundbulletin', function(req, res) {
+  connection.query(`insert into petfound (type, address, message) values ('${req.body.type}', '${req.body.address}', '${req.body.message}')`);
+  res.sendStatus(201);
+});
+
+app.post('/lostbulletin', function(req, res) {
   console.log(req.body);
-  res.send(200);
+  connection.query(`insert into petlost (type, address, message) values ('${req.body.type}', '${req.body.address}', '${req.body.message}')`);
+  res.sendStatus(201);
 });

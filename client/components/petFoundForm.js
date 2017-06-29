@@ -12,10 +12,8 @@ angular.module('pet-detective')
       option2: 'dog',
     };
     this.submit = function (address, formBody) {
-      console.log(address, formBody);
       $http({
-        
-        url: '/bulletins',
+        url: '/foundbulletin',
         method: 'POST',
 
         data: {

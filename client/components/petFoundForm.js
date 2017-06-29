@@ -15,7 +15,7 @@ angular.module('pet-detective')
       console.log(address, formBody, type);
       $http({
         headers: {
-          'content-type': 'application/json',
+          'content-type': 'application/x-www-form-urlencoded',
         },
         url: '/bulletins',
         method: 'POST',

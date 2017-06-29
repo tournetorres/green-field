@@ -3,7 +3,6 @@ angular.module('pet-detective')
     this.formBody;
     this.address;
     this.type;
-    this.lost = 'LOST';
 
     this.data = {
       singleSelect: null,
@@ -11,13 +10,12 @@ angular.module('pet-detective')
       option1: 'cat',
       option2: 'dog',
     };
-    this.submit = function (type, address, formBody) {
+    this.submit = function (address, formBody) {
       $http({
         url: '/lostbulletin',
         method: 'POST',
 
         data: {
-          lostOrFound: this.lost,
           type: this.data.singleSelect,
           address,
           message: formBody,

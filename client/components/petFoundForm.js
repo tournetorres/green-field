@@ -3,7 +3,6 @@ angular.module('pet-detective')
     this.formBody;
     this.address;
     this.type;
-    this.found = 'FOUND';
 
     this.data = {
       singleSelect: null,
@@ -17,7 +16,6 @@ angular.module('pet-detective')
         method: 'POST',
 
         data: {
-          lostOrFound: this.found,
           type: this.data.singleSelect,
           address,
           message: formBody,

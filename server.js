@@ -29,7 +29,7 @@ connection.connect((err) => {
 
 app.listen(PORT, () => console.log('listening on', PORT));
 
-app.post('/bulletins', function(req, res) {
+app.post('/foundbulletin', function(req, res) {
   console.log(req.body);
   connection.query(`insert into petfound (userID, type, address, message) values (2, '${req.body.type}', '${req.body.address}', '${req.body.message}')`);
   res.send(200);

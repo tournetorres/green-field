@@ -31,5 +31,6 @@ app.listen(PORT, () => console.log('listening on', PORT));
 
 app.post('/bulletins', function(req, res) {
   console.log(req.body);
-  res.send(201);
+  connection.query(`insert into petfound (userID, type, address, message) values (2, '${req.body.type}', '${req.body.address}', '${req.body.message}')`);
+  res.send(200);
 });

@@ -25,6 +25,7 @@ angular.module('pet-detective')
         .then((response) => {
           console.log(response);
           console.log('success');
+
         },
         (response) => { // optional
           console.log('fail');

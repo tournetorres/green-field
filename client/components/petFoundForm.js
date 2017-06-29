@@ -12,13 +12,12 @@ angular.module('pet-detective')
       option2: 'dog',
     };
     this.submit = function (address, formBody) {
-      console.log(address, formBody);
       $http({
-        
-        url: '/bulletins',
+        url: '/foundbulletin',
         method: 'POST',
 
         data: {
+          lostOrFound: this.found,
           type: this.data.singleSelect,
           address,
           message: formBody,

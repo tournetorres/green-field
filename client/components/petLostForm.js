@@ -4,7 +4,6 @@ angular.module('pet-detective')
     this.address;
     this.type;
     this.lost = 'LOST';
-    console.log('inside');
 
     this.data = {
       singleSelect: null,
@@ -12,10 +11,26 @@ angular.module('pet-detective')
       option1: 'cat',
       option2: 'dog',
     };
-    console.log(this.data.singleSelect);
+    this.submit = function (type, address, formBody) {
+      $http({
+        url: '/lostbulletin',
+        method: 'POST',
 
-    this.submit = function ($http) {
+        data: {
+          lostOrFound: this.lost,
+          type: this.data.singleSelect,
+          address,
+          message: formBody,
+        },
 
+      })
+        .then((response) => {
+          console.log(response);
+          console.log('success');
+        },
+        (response) => { // optional
+          console.log('fail');
+        });
     };
   })
   .directive('petLostForm', function petLostFormDirective() {

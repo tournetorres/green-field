@@ -10,6 +10,7 @@ angular.module('pet-detective')
       option1: 'cat',
       option2: 'dog',
     };
+
     this.submit = function (address, formBody) {
       $http({
         url: '/foundbulletin',

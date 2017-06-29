@@ -13,9 +13,6 @@ angular.module('pet-detective')
     };
     this.submit = function (type, address, formBody) {
       $http({
-        headers: {
-          'content-type': 'application/x-www-form-urlencoded',
-        },
         url: '/lostbulletin',
         method: 'POST',
 

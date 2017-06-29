@@ -3,7 +3,7 @@ angular.module('pet-detective')
     this.zip;
 
     this.getBulletinModulesByZip = function (zip) {
-        
+
     };
   })
   .directive('search', function searchDirective() {

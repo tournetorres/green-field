@@ -1,8 +1,10 @@
 angular.module('pet-detective')
-  .controller('petFormController', function ($http, $window) {
+  .controller('petFormController', function ($http, $window, formDataFactory) {
     this.formBody;
     this.address;
     this.type;
+    this.bulletinData;
+
 
     this.data = {
       singleSelect: null,
@@ -20,6 +22,7 @@ angular.module('pet-detective')
 
 
     this.submit = function (address, formBody) {
+      this.date = new Date().toString();
       $http({
         url: '/bulletin',
         method: 'POST',
@@ -29,22 +32,33 @@ angular.module('pet-detective')
           type: this.data.singleSelect,
           address,
           message: formBody,
+          date: this.date,
         },
 
       })
         .then((response) => {
           console.log(response);
           console.log('success');
-        },
-        (response) => { // optional
-          console.log('fail');
+          return formDataFactory.fetchFormData();
+        })
+        .then((bulletins) => {
+          console.log(bulletins.data);
+          this.bulletinData = bulletins.data;
+          this.data.singleSelect = null;
+          this.petState.lostOrFound = null;
+          this.formBody = null;
+          this.address = null;
         });
+
+      // (response) => { // optional
+      //   console.log('fail');
+      // });
     };
   })
   .directive('petForm', function petFormDirective() {
     return {
       scope: {
-
+        bulletinData: '<',
       },
       restrict: 'E',
       controller: 'petFormController',

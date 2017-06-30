@@ -1,18 +1,34 @@
-let mod = angular.module('pet-detective', []);
-mod.service('fetchForm', function ($http) {
-  const fetchForm = {};
+angular.module('pet-detective')
+  .factory('formDataFactory', function ($http) {
+    return {
+      fetchFormData() {
+        return $http({
+          url: '/bulletin',
+          method: 'GET',
+        })
+          .then((response) => {
+            return response;
+            console.log(response);
+            console.log('success s');
+          },
+          (response) => { // optional
+            console.log('fail');
+          });
+      },
+    };
+  })
+  .controller('formDataController', function () {
 
-  fetchForm.fetchLostFormData = function () {
-    return $http.get('/lostbulletin')
-      .then(function (response) {
-        console.log(response.data);
-      });
-  };
 
-  fetchForm.fetchFoundFormData = function () {
-    return $http.get('/foundbulletin')
-      .then(function (response) {
-        console.log(response.data);
-      });
-  };
-});
+  })
+  .directive('fetchFormData', function fetchFormDataDirective() {
+    return {
+      scope: {
+      },
+      restrict: 'E',
+      controller: 'formDataController',
+      controllerAs: 'ctrl',
+      bindToController: true,
+      templateUrl: 'components/fetchFormData.html',
+    };
+  });

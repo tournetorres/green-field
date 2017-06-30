@@ -1,5 +1,5 @@
 angular.module('pet-detective')
-  .controller('petFormController', function ($http, $window) {
+  .controller('petFormController', function ($http, $window, formDataFactory) {
     this.formBody;
     this.address;
     this.type;
@@ -35,10 +35,15 @@ angular.module('pet-detective')
         .then((response) => {
           console.log(response);
           console.log('success');
-        },
-        (response) => { // optional
-          console.log('fail');
+          return formDataFactory.fetchFormData();
+        })
+        .then((bulletins) => {
+          console.log(bulletins);
         });
+
+      // (response) => { // optional
+      //   console.log('fail');
+      // });
     };
   })
   .directive('petForm', function petFormDirective() {

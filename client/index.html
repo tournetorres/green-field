@@ -22,29 +22,27 @@
         <div class="col-md-13" ng-controller="dispatchController">
           <dispatch></dispatch>
         </div>
-        <div class="col-md-6" ng-controller="petFoundFormController">
-          <pet-found-form></pet-found-form>
-        </div>
-        <div class="col-md-6" ng-controller="petLostFormController">
-          <pet-lost-form></pet-lost-form>
+        <div class="col-md-6" ng-controller="petFormController">
+          <pet-form></pet-form>
         </div>
 
         <div class="col" ng-controller="bulletinBoardController">
-          <div ng-controller="bulletinModuleController"></div>
+          <bulletin-board></bulletin-board>
+          
         </div>
       </div>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="mapService.js"></script>
+    <script src="components/fetchFormData.js"></script>
+    <script src="map.config.js"></script>
     <script src="components/app.js"></script>
     <script src="map.config.js"></script>
     <script src="components/dispatch.js"></script>
     <script src="components/staticMapDispatch.js"></script>
     <script src="components/search.js"></script>
-    <script src="components/petFoundForm.js"></script>
-    <script src="components/petLostForm.js"></script>
-    <script src="components/bulletinModule.js"></script>
+    <script src="components/petForm.js"></script>
     <script src="components/bulletinBoard.js"></script>
+    <script src="components/bulletinModule.js"></script>
+
   </body>
 </html>

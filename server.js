@@ -12,6 +12,7 @@ const connection = mysql.createConnection({
   password: '',
   database: 'petdetective',
 });
+//Random change
 
 app.use(express.static('client'));
 

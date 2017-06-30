@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-signin-client_id" content="673527265143-l8gvqn8e0qcm4o23nf914sd9hp0tj82c.apps.googleusercontent.com">
 
-    <title>Pet Detective</title>
-    <link href="styles.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-  </head>
-<nav class="navbar navbar-inverse bg-primary">
-  <!-- Navbar content -->
-</nav>
-
-  <body ng-app="pet-detective">
 
     <div class="container">
         <div class="row">
@@ -29,7 +11,7 @@
                                     <h1>Hello, Pet Detective!</h1>
                                       <div class="col-md-2">
                                         <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                                        <script>
+                                        <!-- <script>
                                           function onSignIn(googleUser) {
                                             // Useful data for your client-side scripts:
                                             var profile = googleUser.getBasicProfile();
@@ -44,18 +26,18 @@
                                             var id_token = googleUser.getAuthResponse().id_token;
                                             console.log("ID Token: " + id_token);
                                           };
-                                        </script>
+                                        </script> -->
                                       </div>
                                       <div class="col-md-2">
-                                        <a href="#" onclick="signOut();">Sign out</a>
-                                        <script>
+                                        <a ng-href="#" onclick="signOut();">Sign out</a>
+                                        <!-- <script>
                                           function signOut() {
                                             var auth2 = gapi.auth2.getAuthInstance();
                                             auth2.signOut().then(function () {
                                               console.log('User signed out.');
                                             });
                                           }
-                                        </script>
+                                        </script> -->
                                       </div>
                                 </span>
                             </div>
@@ -69,21 +51,3 @@
 
         </div>
     </div>
-    <div ng-controller="appController"></div>
-    <div ng-controller="bulletinBoardController"></div>
-    <div ng-controller="bulletinModuleController"></div>
-    <div ng-controller="dispatchController"></div>
-    <div ng-controller="petFoundFormController"></div>
-    <div ng-controller="petLostFormController"></div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="mapService.js"></script>
-    <script src="components/app.js"></script>
-    <script src="map.config.js"></script>
-    <script src="components/dispatch.js"></script>
-    <script src="components/petFoundForm.js"></script>
-    <script src="components/petLostForm.js"></script>
-    <script src="components/bulletinModule.js"></script>
-    <script src="components/bulletinBoard.js"></script>
-  </body>
-</html>

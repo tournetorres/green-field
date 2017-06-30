@@ -30,12 +30,23 @@ connection.connect((err) => {
 app.listen(PORT, () => console.log('listening on', PORT));
 
 app.get('/bulletin', function(req, res) {
-  connection.query(`select * from petpost`);
-  res.send(200);
+  connection.query(`select * from petpost`, function(err, rows, fields) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(rows);
+    }
+  });
 });
 
 app.post('/bulletin', function(req, res) {
-  connection.query(`insert into petpost (lostOrFound, type, address, message) values ('${req.body.lostOrFound}','${req.body.type}', '${req.body.address}', '${req.body.message}')`);
+  connection.query(`insert into petpost (lostOrFound, type, address, message) values ('${req.body.lostOrFound}','${req.body.type}', '${req.body.address}', '${req.body.message}')`, function(err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('Your post has been submitted');
+    }
+  });
   res.sendStatus(201);
 });
 

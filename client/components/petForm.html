@@ -1,3 +1,4 @@
+<div class="col-md-6">
 <form class="row" style="background-color:lavender;">
   <div class="form-group">
     <label for="lostOrFound"> Choose Lost or Found: </label><br>
@@ -24,3 +25,7 @@
     </div>
   <button ng-click="ctrl.submit(ctrl.address, ctrl.formBody)" type="submit" class="btn btn-default">Submit</button>
 </form>
+</div>
+<div ng-repeat="bulletin in ctrl.bulletinData" style="color: white; margin-top: 2px;background-color:darkgreen; height:289px" class="col-md-6">
+      {{bulletin}}
+</div>  

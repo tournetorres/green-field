@@ -20,19 +20,15 @@ angular.module('pet-detective')
   .controller('formDataController', function () {
 
 
-    //   .success(function (bulletins) { this.bulletins = bulletins; });
-    // console.log(this.bulletins);
   })
   .directive('fetchFormData', function fetchFormDataDirective() {
     return {
       scope: {
-        formDataFactory: '@',
       },
       restrict: 'E',
-      factory: 'formDataFactory',
       controller: 'formDataController',
       controllerAs: 'ctrl',
       bindToController: true,
-      template: '<div></div>',
+      templateUrl: 'components/fetchFormData.html',
     };
   });

@@ -3,6 +3,7 @@ angular.module('pet-detective')
     this.formBody;
     this.address;
     this.type;
+    this.bulletinData;
 
     this.data = {
       singleSelect: null,
@@ -38,7 +39,8 @@ angular.module('pet-detective')
           return formDataFactory.fetchFormData();
         })
         .then((bulletins) => {
-          console.log(bulletins);
+          console.log(bulletins.data);
+          this.bulletinData = bulletins.data;
         });
 
       // (response) => { // optional
@@ -49,7 +51,7 @@ angular.module('pet-detective')
   .directive('petForm', function petFormDirective() {
     return {
       scope: {
-
+        bulletinData: '<',
       },
       restrict: 'E',
       controller: 'petFormController',

@@ -17,6 +17,6 @@ angular.module('pet-detective')
       controller: 'staticMapDispatchController',
       controllerAs: 'ctrl',
       bindToController: true,
-      template: '<img ng-src="{{ctrl.staticMapUrl}}"/>',
+      templateUrl: 'components/staticMapDispatch.html',
     };
   });

@@ -1,5 +1,5 @@
 angular.module('pet-detective')
-  .controller('petFoundFormController', function ($http, $window) {
+  .controller('petFormController', function ($http, $window) {
     this.formBody;
     this.address;
     this.type;
@@ -7,16 +7,25 @@ angular.module('pet-detective')
     this.data = {
       singleSelect: null,
       multipleSelect: [],
-      option1: 'cat',
-      option2: 'dog',
+      option1: 'Cat',
+      option2: 'Dog',
     };
+
+    this.petState = {
+      lostOrFound: null,
+      multipleSelect: [],
+      option1: 'Lost',
+      option2: 'Found',
+    };
+
 
     this.submit = function (address, formBody) {
       $http({
-        url: '/foundbulletin',
+        url: '/bulletin',
         method: 'POST',
 
         data: {
+          lostOrFound: this.petState.lostOrFound,
           type: this.data.singleSelect,
           address,
           message: formBody,
@@ -26,22 +35,21 @@ angular.module('pet-detective')
         .then((response) => {
           console.log(response);
           console.log('success');
-
         },
         (response) => { // optional
           console.log('fail');
         });
     };
   })
-  .directive('petFoundForm', function petFoundFormDirective() {
+  .directive('petForm', function petFormDirective() {
     return {
       scope: {
 
       },
       restrict: 'E',
-      controller: 'petFoundFormController',
+      controller: 'petFormController',
       controllerAs: 'ctrl',
       bindToController: true,
-      templateUrl: 'components/petFoundForm.html',
+      templateUrl: 'components/petForm.html',
     };
   });

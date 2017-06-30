@@ -12,7 +12,6 @@ const connection = mysql.createConnection({
   password: '',
   database: 'petdetective',
 });
-//Random change
 
 app.use(express.static('client'));
 
@@ -30,24 +29,13 @@ connection.connect((err) => {
 
 app.listen(PORT, () => console.log('listening on', PORT));
 
-app.get('/foundbulletin', function(req, res) {
-  connection.query(`select * from petfound`);
+app.get('/bulletin', function(req, res) {
+  connection.query(`select * from petpost`);
   res.send(200);
 });
 
-app.get('/lostbulletin', function(req, res) {
-  connection.query(`select * from petlost`);
-  res.send(200);
-});
-
-app.post('/foundbulletin', function(req, res) {
-  connection.query(`insert into petfound (type, address, message) values ('${req.body.type}', '${req.body.address}', '${req.body.message}')`);
-  res.sendStatus(201);
-});
-
-app.post('/lostbulletin', function(req, res) {
-  console.log(req.body);
-  connection.query(`insert into petlost (type, address, message) values ('${req.body.type}', '${req.body.address}', '${req.body.message}')`);
+app.post('/bulletin', function(req, res) {
+  connection.query(`insert into petpost (lostOrFound, type, address, message) values ('${req.body.lostOrFound}','${req.body.type}', '${req.body.address}', '${req.body.message}')`);
   res.sendStatus(201);
 });
 

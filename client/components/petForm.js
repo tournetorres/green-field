@@ -5,6 +5,7 @@ angular.module('pet-detective')
     this.type;
     this.bulletinData;
 
+
     this.data = {
       singleSelect: null,
       multipleSelect: [],
@@ -21,6 +22,7 @@ angular.module('pet-detective')
 
 
     this.submit = function (address, formBody) {
+      this.date = new Date().toString();
       $http({
         url: '/bulletin',
         method: 'POST',
@@ -30,6 +32,7 @@ angular.module('pet-detective')
           type: this.data.singleSelect,
           address,
           message: formBody,
+          date: this.date,
         },
 
       })
@@ -41,6 +44,10 @@ angular.module('pet-detective')
         .then((bulletins) => {
           console.log(bulletins.data);
           this.bulletinData = bulletins.data;
+          this.data.singleSelect = null;
+          this.petState.lostOrFound = null;
+          this.formBody = null;
+          this.address = null;
         });
 
       // (response) => { // optional

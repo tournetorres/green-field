@@ -19,7 +19,6 @@ angular.module('pet-detective')
   })
   .controller('formDataController', function () {
 
-
   })
   .directive('fetchFormData', function fetchFormDataDirective() {
     return {

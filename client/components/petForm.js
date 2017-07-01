@@ -1,10 +1,10 @@
 angular.module('pet-detective')
   .controller('petFormController', function ($http, $window, formDataFactory) {
+    this.place = null;
+
     this.formBody;
-    this.address;
     this.type;
     this.bulletinData;
-
 
     this.data = {
       singleSelect: null,
@@ -20,8 +20,7 @@ angular.module('pet-detective')
       option2: 'Found',
     };
 
-
-    this.submit = function (address, formBody) {
+    this.submit = function (place, formBody) {
       this.date = new Date().toString();
       $http({
         url: '/bulletin',
@@ -30,7 +29,7 @@ angular.module('pet-detective')
         data: {
           lostOrFound: this.petState.lostOrFound,
           type: this.data.singleSelect,
-          address,
+          address: this.place.formatted_address,
           message: formBody,
           date: this.date,
         },
@@ -67,3 +66,4 @@ angular.module('pet-detective')
       templateUrl: 'components/petForm.html',
     };
   });
+

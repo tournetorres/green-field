@@ -19,8 +19,7 @@ angular.module('pet-detective')
       option1: 'Lost',
       option2: 'Found',
     };
-
-
+    
     this.submit = function (address, formBody) {
       this.date = new Date().toString();
       $http({
@@ -67,3 +66,6 @@ angular.module('pet-detective')
       templateUrl: 'components/petForm.html',
     };
   });
+
+
+// let googleplacesURL = https://maps.googleapis.com/maps/api/place/autocomplete/json?input=748 camp street&key=AIzaSyCpf6PwUa_fHc1X-xCebvuPAyDJd_F7c3k

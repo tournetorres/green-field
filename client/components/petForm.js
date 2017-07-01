@@ -1,10 +1,10 @@
 angular.module('pet-detective')
   .controller('petFormController', function ($http, $window, formDataFactory) {
+    this.place = null;
+
     this.formBody;
-    this.address;
     this.type;
     this.bulletinData;
-
 
     this.data = {
       singleSelect: null,
@@ -19,8 +19,8 @@ angular.module('pet-detective')
       option1: 'Lost',
       option2: 'Found',
     };
-    
-    this.submit = function (address, formBody) {
+
+    this.submit = function (place, formBody) {
       this.date = new Date().toString();
       $http({
         url: '/bulletin',
@@ -29,7 +29,7 @@ angular.module('pet-detective')
         data: {
           lostOrFound: this.petState.lostOrFound,
           type: this.data.singleSelect,
-          address,
+          address: this.place.formatted_address,
           message: formBody,
           date: this.date,
         },
@@ -67,5 +67,3 @@ angular.module('pet-detective')
     };
   });
 
-
-// let googleplacesURL = https://maps.googleapis.com/maps/api/place/autocomplete/json?input=748 camp street&key=AIzaSyCpf6PwUa_fHc1X-xCebvuPAyDJd_F7c3k

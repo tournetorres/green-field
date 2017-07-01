@@ -1,9 +1,6 @@
-angular.module('pet-detective', [])
-  .controller('appController', function (formDataFactory) {
-    this.load = function () {
-      return formDataFactory.fetchFormData();
-    };
-    this.load();
+angular.module('pet-detective', ['google.places'])
+  .controller('appController', function () {
+
   })
 
 

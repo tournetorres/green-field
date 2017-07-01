@@ -8,8 +8,6 @@ angular.module('pet-detective')
         })
           .then((response) => {
             return response;
-            console.log(response);
-            console.log('success s');
           },
           (response) => { // optional
             console.log('fail');
@@ -18,7 +16,6 @@ angular.module('pet-detective')
     };
   })
   .controller('formDataController', function () {
-
 
   })
   .directive('fetchFormData', function fetchFormDataDirective() {

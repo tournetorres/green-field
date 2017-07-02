@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-signin-client_id" content="673527265143-l8gvqn8e0qcm4o23nf914sd9hp0tj82c.apps.googleusercontent.com">
     <title>Pet Detective</title>
     <link href="styles.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -14,72 +13,31 @@
   </head>
 
   <body ng-app="pet-detective">
-    <script>
-    window.obj = {};
-    </script>
-  <div ng-controller="loginController" ng-hide="{{window.obj.id !== window.token}}">
-    <!-- Need to be able to persist window.obj.id -->
-    <div>
-        <login></login>
-        <script>
-        // console.log(Boolean(win))
-        function onSignIn(googleUser) {
-          // Useful data for your client-side scripts:
-          var profile = googleUser.getBasicProfile();
-          // console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-          console.log('Full Name: ' + profile.getName());
-          console.log('Given Name: ' + profile.getGivenName());
-          console.log('Family Name: ' + profile.getFamilyName());
-          console.log("Image URL: " + profile.getImageUrl());
-          console.log("Email: " + profile.getEmail());
-          var email = profile.getEmail();
-          // The ID token you need to pass to your backend:
-          var id_token = googleUser.getAuthResponse().id_token;
-          // console.log("ID Token: " + id_token);
-          window.token = id_token;
-          window.obj.id = id_token;
-          // store the value into the db here then make a function or variable that querys
-          // for that value in the db in the ng-hide/ng-show
-          // console.log(window.obj);
-        };
-      </script>
-      <script>
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log('User signed out.');
-        });
-      }
-      </script>
-    </div>
-  </div>
-    <div ng-show="{{window.obj.id !== window.token}}" class="container">
+    <div class="container">
+
       <h1>Hello, Pet Detective!</h1>
       <div class="row">
       <div ng-controller="appController">
         <div class="col-md-13" ng-controller="dispatchController">
           <dispatch></dispatch>
         </div>
-        <div class="col-md-6" ng-controller="petFormController">
+        <div class="col" ng-controller="petFormController">
           <pet-form></pet-form>
-        </div>
-        <div class="col" ng-controller="bulletinBoardController">
-          <bulletin-board></bulletin-board>
         </div>
       </div>
       </div>
     </div>
-    <script src="components/fetchFormData.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="components/autocomplete.js"></script>
     <script src="map.config.js"></script>
     <script src="components/app.js"></script>
-    <script src="components/login.js"></script>
-    <script src="map.config.js"></script>
     <script src="components/dispatch.js"></script>
     <script src="components/staticMapDispatch.js"></script>
     <script src="components/search.js"></script>
     <script src="components/petForm.js"></script>
-    <script src="components/bulletinBoard.js"></script>
-    <script src="components/bulletinModule.js"></script>
+    <script src="components/fetchFormData.js"></script>
+
 
   </body>
 </html>

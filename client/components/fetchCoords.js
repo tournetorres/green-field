@@ -1,19 +1,18 @@
 angular.module('pet-detective')
-  .factory('fetchCoordsFactory', function ($http) {
+  .factory('fetchCoordsFactory', function ($http, $q) {
     return {
+
       fetchCoords() {
-        return $http({
-          url: '/bulletin',
-          method: 'GET',
-        })
-          .then((response) => {
-            return response;
-            console.log(response);
-            console.log('success s');
-          },
-          (response) => { // optional
-            console.log('fail');
+        let prom = $q.defer();
+        $http.get('/bulletin')
+          .then(function (data) {
+            prom.resolve({
+              coords: data.data.map(function (el) {
+               return el.latlong.split(',');
+              }),
+            });
           });
+        return prom.promise;
       },
     };
   })

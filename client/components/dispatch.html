@@ -2,7 +2,7 @@
     #map-canvas {
         height: 325px;
         width: auto;
-        border: 2px solid red;
+        border: 2px solid green;
     }
 
     .active a {
@@ -21,14 +21,21 @@ h2 {
 }
 </style>
 
-<div ng-controller="searchController" style="background-color: lightyellow; height: 325px;" id="addNew" class="col-md-6">
 
-<span style="padding:5%">
-    <search></search></span>
-
+<div ng-controller="searchController" style="border-radius: 10px; background-color: white; height: 325px;" id="addNew" class="col-md-6">
+<h1 style="color: black; text-align: center;">Hi, Pet Detective
+<h2 style="color: gray; text-align: center;">Let's Get Started</h2>
+</h1>
+    <!--<span style="padding:5%"><search></search></span>-->
+    <div style="padding:2%; margin-top: 8%; margin-left: 15%;">
+        <a data-toggle="collapse" data-target="#demo" style="width: 80%"class="btn btn-lg btn-success" href="#">
+        <i class="fa fa-pencil fa-2x pull-left"></i><span style="font-size: 25px">Pet Found?</span></a>
+    </div>
+    <div style="background-color: white; padding:2%; margin-left: 15%;">
+        <a data-toggle="collapse" data-target="#demo" style="width: 80%" class="btn btn-lg btn-danger" href="#">
+        <i class="fa fa-pencil fa-2x pull-left"></i><span style="font-size: 25px">Pet Lost?</span></a>
+    </div>
 </div>
-<div ng-controller="petFormController" style="background-color: #e4d9bd; height: 325px;" class="col-md-6">
+<div ng-controller="petFormController" style="border-radius: 10px; background-color: #white; height: 325px;" class="col-md-6">
         <static-map-dispatch></static-map-dispatch>
-  <div></div>
 </div>
-<!--<script src="http://maps.google.com/maps/api/js?key=AIzaSyDqHspKFKggT_yQH6EoB6fUQxiDY1nFJB4"></script>-->

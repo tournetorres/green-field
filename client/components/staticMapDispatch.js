@@ -20,6 +20,7 @@ angular.module('pet-detective')
         return [Number(el[0]), Number(el[1])];
       });
       for (let i = 0; i < coords.length; i++) {
+
         this.addMarker = function () {
           this.mymarker = new google.maps.Marker({
             map: this.mymapdetail,

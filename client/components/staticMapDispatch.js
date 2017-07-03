@@ -1,23 +1,36 @@
 
 angular.module('pet-detective')
-  .controller('staticMapDispatchController', function ($window, $http) {
-    this.staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=29.9952,-90.0716&zoom=14&size=555x325&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=${window.STATIC_API_KEY}`;
-    $http.get(this.staticMapUrl)
-      .then((response) => {
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+  .controller('staticMapDispatchController', function () {
+    // NgMap.getMap().then(function (map) {
+    //   console.log(map.getCenter());
+    //   console.log('markers', map.markers);
+    //   console.log('shapes', map.shapes);
+    // });
   })
   .directive('staticMapDispatch', function staticMapDispatchDirective() {
     return {
       scope: {
       },
       restrict: 'E',
-      controller: 'staticMapDispatchController',
-      controllerAs: 'ctrl',
-      bindToController: true,
-      templateUrl: 'components/staticMapDispatch.html',
+      template: '<div></div>',
+      replace: true,
+      // controller: 'staticMapDispatchController',
+      // controllerAs: 'ctrl',
+      // bindToController: true,
+      link: function(scope, element, attrs) {
+        let myLatLng = new google.maps.LatLng(29.945947, -90.070023);
+        let mapOptions = {
+          center: myLatLng,
+          zoom: 15,
+        };
+        let map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        let marker = new google.maps.Marker({
+          position: myLatLng,
+          map,
+          title: 'Pet Detective Headquarters',
+        });
+        marker.setMap(map);
+      },
     };
   });
 

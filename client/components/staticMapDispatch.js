@@ -3,13 +3,13 @@ angular.module('pet-detective')
   .controller('staticMapDispatchController', function (fetchCoordsFactory) {
     fetchCoordsFactory.fetchCoords().then(function (data) {
       this.woa = {
-        city: 'Pet Detective Headquarters',
+        city: 'PET',
       };
 
 
       // set up map
       this.mapOptions = {
-        zoom: 10,
+        zoom: 12,
         center: new google.maps.LatLng(29.945947, -90.070023),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
       };

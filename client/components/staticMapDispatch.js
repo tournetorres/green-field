@@ -20,11 +20,7 @@ angular.module('pet-detective')
         return [Number(el[0]), Number(el[1])];
       });
       for (let i = 0; i < coords.length; i++) {
-        // this.item = {
-        //   coordinates: [coords[i][0], coords[i][1]],
-        // };
-        // console.log(this.item.coordinates[0], this.item.coordinates[1]);
-
+  
         // add marker
         this.addMarker = function () {
           this.mymarker = new google.maps.Marker({
@@ -37,11 +33,6 @@ angular.module('pet-detective')
         this.addMarker();
       }
     });
-
-
-    // this.item = {
-    //   coordinates: [29.945947, -90.070023],
-    // };
   })
   .directive('staticMapDispatch', function staticMapDispatchDirective() {
     return {
@@ -53,29 +44,6 @@ angular.module('pet-detective')
       controllerAs: 'ctrl',
       bindToController: true,
       replace: true,
-    //   link(scope, element, attrs) {
-    //     const myLatLng = new google.maps.LatLng(29.945947, -90.070023);
-    //     const mapOptions = {
-    //       center: myLatLng,
-    //       zoom: 15,
-    //     };
-    //     const map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    //     let marker;
-
-    //     google.maps.event.addListener(map, 'click', function (event) {
-    //       placeMarker(event.latLng);
-    //     });
-
-    //     function placeMarker(location) {
-    //       if (marker == null) {
-    //         marker = new google.maps.Marker({
-    //           position: location,
-    //           map,
-    //         });
-    //       } else { marker.setPosition(location); }
-    //     }
-    //     // marker.setMap(map);
-    //   },
     };
   });
 

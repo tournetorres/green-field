@@ -8,11 +8,13 @@
     <link href="styles.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
   <nav class="navbar navbar-default">
   <div class="container">
+    <div style="background-color: green">
     <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -21,25 +23,26 @@
         <span class="icon-bar"></span>
     </button>
       <a class="navbar-brand" href="#">
-            <div style="margin-left: 25%; color: green">petdetective</div>
-        <img alt="Brand" style="width: 30%; margin-top: -30px" src="https://www.shareicon.net/data/256x256/2015/10/10/653854_print_512x512.png">
+            <div style="font-size: 35px; margin-left: 17%; color: green">petdetective</div>
+        <img alt="Brand" style="width: 20%; margin-top: -30px" src="https://www.shareicon.net/data/256x256/2015/10/10/653854_print_512x512.png">
         
       </a>
     </div>
+    </div>
 
-    <div id="navbar" class="navbar-collapse collapse">
+    <!--<div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
       
     <li class="active"><a href="#">Lost</a></li> 
     <li><a href="#">Found</a></li>
     </ul>
-    </div>
+    </div>-->
   </div>
 </nav>
-  <body ng-app="pet-detective">
+  <body style="background-color: #008000;" ng-app="pet-detective">
     <div class="container">
 
-      <h1>Hello, Pet Detective!</h1>
+      <h1 style="color: white; display:none">Hello, Pet Detective!</h1>
       <div class="row">
       <div ng-controller="appController">
         <div class="col-md-13" ng-controller="dispatchController">

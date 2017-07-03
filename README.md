@@ -52,4 +52,4 @@ See CONTRIBUTING.md for contribution guidelines.
 ![img](http://kartikgola.com/wp-content/uploads/2017/02/express3.png)
 
 
-![img](https://upload.wikimedia.org/wikipedia/en/1/19/Google_Maps_Icon.png)
+![img](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-BLdbYkpNZFei4Ok3tusGUT6hl3sy-QEHWuWPAIugq4cEoq3e)

@@ -48,7 +48,7 @@ app.get('/bulletin', function(req, res) {
 });
 
 app.post('/bulletin', function(req, res) {
-  connection.query(`insert into petpost (lostOrFound, type, address, message, date) values ('${req.body.lostOrFound}','${req.body.type}', '${req.body.address}', '${req.body.message}', '${req.body.date}')`, function(err, rows, fields) {
+  connection.query(`insert into petpost (lostOrFound, type, address, message, date, latlong) values ('${req.body.lostOrFound}','${req.body.type}', '${req.body.address}', '${req.body.message}', '${req.body.date}', '${req.body.latlong}')`, function(err, rows, fields) {
     if (err) {
       console.error(err);
     } else {

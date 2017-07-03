@@ -1,43 +1,55 @@
-Project Name
+Pet-Detective
 
-Pithy project description
-Team
+The app that helps the hunt for lost pets!
+#Team
+Copypasta
 
-Product Owner: teamMember
-Scrum Master: teamMember
-Development Team Members: teamMember, teamMember
+Product Owner: Tourne Torres
+Scrum Master: Daniel Weill
+Development Team Members: Tourne Torres, Taijon Robinson, Daniel Weill
 Table of Contents
 
-Usage
-Requirements
-Development
-Installing Dependencies
-Tasks
-Team
-Contributing
-Usage
+#Usage
+##Requirements
+##Development
+##Installing Dependencies
+##Tasks
+##Team
+##Contributing
+#Usage
 
-Some usage instructions
-Requirements
+##Some usage instructions
+##Requirements
+Node 6.10.2
+MySQL 5.7.18
+express
+body-parser
+dotenv
 
-Node 0.10.x
-Redis 2.6.x
-Postgresql 9.1.x
-etc
-etc
-Development
+Place these keys in a config file inside of your *client* folder
+window.GEOCODE_API_KEY = 'YOUR GEOCODE API KEY';
 
-Installing Dependencies
+window.PLACES_API_KEY = 'YOUR PLACES API KEY';
 
-From within the root directory:
+Create a .env file to store port and database variables. Localhost will suffice for db in most cases/
 
-sudo npm install -g bower
+You will need a database called petdetective, created in a mysql session. Once used, create a table called petpost with the following command: create table petpost (id integer not null auto_increment, lostOrFound varchar(20), type varchar(20) , address varchar(140), message varchar(140), date varchar(140), latlong varchar(140), primary key (id));
+##Development
+
+##Installing Dependencies
+
+###From within the root directory:
+Run this command:
 npm install
-bower install
-Roadmap
 
-View the project roadmap here
-
-Contributing
+It's that simple!
+##Contributing
 
 See CONTRIBUTING.md for contribution guidelines.
+
+![img](https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png)
+
+![img](http://kartikgola.com/wp-content/uploads/2017/02/express3.png)
+
+
+![img](https://upload.wikimedia.org/wikipedia/en/1/19/Google_Maps_Icon.png)

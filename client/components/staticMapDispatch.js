@@ -38,7 +38,7 @@ angular.module('pet-detective')
       scope: {
       },
       restrict: 'E',
-      template: "<div ng-model='ctrl.mymarker' id='map-canvas'></div>",
+      template: "<div style='border-radius: 10px' ng-model='ctrl.mymarker' id='map-canvas'></div>",
       controller: 'staticMapDispatchController',
       controllerAs: 'ctrl',
       bindToController: true,

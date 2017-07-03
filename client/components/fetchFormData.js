@@ -7,9 +7,8 @@ angular.module('pet-detective')
           method: 'GET',
         })
           .then((response) => {
-            return response;
-            console.log(response);
-            console.log('success s');
+            console.log(response.data);
+            return response.data;
           },
           (response) => { // optional
             console.log('fail');
@@ -17,8 +16,9 @@ angular.module('pet-detective')
       },
     };
   })
-  .controller('formDataController', function () {
-
+  .controller('formDataController', function (formDataFactory) {
+    this.data = formDataFactory.fetchFormData();
+    console.log(this.data);
   })
   .directive('fetchFormData', function fetchFormDataDirective() {
     return {

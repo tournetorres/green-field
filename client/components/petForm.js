@@ -5,6 +5,7 @@ angular.module('pet-detective')
     this.formBody;
     this.type;
     this.bulletinData;
+    this.latlong;
 
     this.data = {
       singleSelect: null,
@@ -32,6 +33,7 @@ angular.module('pet-detective')
           address: this.place.formatted_address,
           message: formBody,
           date: this.date,
+          latlong: [this.place.geometry.location.lat(), this.place.geometry.location.lng()],
         },
 
       })

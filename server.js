@@ -4,6 +4,8 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 
 const app = express();
+const path = require('path');
+
 const PORT = process.env.PORT;
 const DB = process.env.DB || 'localhost';
 const connection = mysql.createConnection({
@@ -12,6 +14,12 @@ const connection = mysql.createConnection({
   password: '',
   database: 'petdetective',
 });
+const GoogleAuth = require('google-auth-library');
+
+const jwt = require('jsonwebtoken');
+
+const auth = new GoogleAuth;
+const client = new auth.OAuth2('673527265143-l8gvqn8e0qcm4o23nf914sd9hp0tj82c.apps.googleusercontent.com', '', '');
 
 app.use(express.static('client'));
 
@@ -50,3 +58,22 @@ app.post('/bulletin', function(req, res) {
   res.sendStatus(201);
 });
 
+app.post('/tokensignin', function (req, res) {
+  client.verifyIdToken(
+    req.body.idtoken,
+    '673527265143-l8gvqn8e0qcm4o23nf914sd9hp0tj82c.apps.googleusercontent.com',
+    // Or, if multiple clients access the backend:
+    // [CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3],
+    function (e, login) {
+      var token;
+      const payload = login.getPayload();
+      if (payload) {
+        token = jwt.sign(payload, process.env.MY_SECRET);
+      }
+      connection.query(`insert into users (email, picture) values ('${payload.email}','${payload.picture}')`);
+      res.status(200).send(token);
+
+      // If request specified a G Suite domain:
+      // var domain = payload['hd'];
+    });
+});

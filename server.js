@@ -21,7 +21,7 @@ const jwt = require('jsonwebtoken');
 const auth = new GoogleAuth;
 const client = new auth.OAuth2('673527265143-l8gvqn8e0qcm4o23nf914sd9hp0tj82c.apps.googleusercontent.com', '', '');
 
-// app.use(express.static('client'));
+app.use(express.static('client'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 

@@ -9,7 +9,7 @@ angular.module('pet-detective')
             prom.resolve({
               data: data.data,
               coords: data.data.map(function (el) {
-               return el.latlong.split(',');
+                return el.latlong.split(',');
               }),
             });
           });

@@ -1,5 +1,11 @@
 angular.module('pet-detective')
-  .controller('dispatchController', function () {
+  .controller('dispatchController', function (formDataFactory) {
+    this.storage = [];
+    this.information = formDataFactory.fetchFormData();
+    this.information.then(response => response.forEach((info) => {
+      this.storage.push(info);
+      console.log(this.storage, 'sy');
+    }));
   })
   .directive('dispatch', function dispatchDirective() {
     return {

@@ -1,4 +1,4 @@
-angular.module('pet-detective', ['google.places', 'ngMap'])
+angular.module('pet-detective', ['google.places'])
   .controller('appController', function () {
 
   })

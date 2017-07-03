@@ -1,3 +1,4 @@
+
  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <style>
@@ -58,10 +59,11 @@ h4 {
 
 
  <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-          
+    <div class="row" >
+        <div class="col-md-6" ng-init="ctrl.render()">
+            <div ng-controller="dispatchController"></div>
             <div style="margin-top: 15px;" id="demo" class="collapse form-login">
+              
                <!--<button style="border-radius: 15px" class="btn btn-info">-->
               <h4>Hi, Pet Detective!</h4>
                  <label style="color: white" for="lostOrFound"> Choose Lost or Found: </label><br>
@@ -106,7 +108,6 @@ h4 {
   
             </div>  
            </div>    
-
 <div ng-repeat="bulletin in ctrl.bulletinData" style="color: white; margin-top: 2px;background-color:darkgreen; height:289px" class="col-md-6">
     {{bulletin}}
     

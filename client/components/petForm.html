@@ -44,17 +44,8 @@ h4 {
 
 }
 
-/*.pac-container {
-    z-index: 10000 !important;
-    width: auto !important;
-    position: initial !important;
-    left: 0 !important;
-    right: 0 !important;
-    display: block !important;
-}
-.pac-container:empty{
-    display: none !important;
-}*/
+.pac-container { z-index: 10000 !important; }
+
   </style>
 
 
@@ -86,8 +77,9 @@ h4 {
                   <label style="color: white" for="inlineFormInputGroup">Last Seen: Enter Address or Nearby Business</label>
                   <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <div class="input-group-addon">+</div>
-                    <input type="text" id="inlineFormInputGroup" g-places-autocomplete ng-model="ctrl.place" id="searchTextField" class="form-control input-large chat-input" placeholder="Start Typing Address..." />
-
+                    <div>
+                    <input type="text" id="address" g-places-autocomplete ng-model="ctrl.place" id="searchTextField" class="form-control input-large chat-input" placeholder="Start Typing Address..." />
+                    </div>
                   </div>
                 </div>
  
@@ -107,9 +99,19 @@ h4 {
                 </div>
   
             </div>  
-           </div>    
-<div ng-repeat="bulletin in ctrl.bulletinData" style="color: white; margin-top: 2px;background-color:darkgreen; height:289px" class="col-md-6">
-    {{bulletin}}
-    
+           </div>
+          
+<div ng-repeat="bulletin in ctrl.bulletinData" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" class="col-md-6">
+   <div style="border-radius: 10px;color: gray; padding: 15px;margin-top: 5px;background-color:lightgray; height:auto">
+
+    <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
+        <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
+        <h4 style="height: 50px;font-size: 19px"><b>{{bulletin.date}}</b></h4>
+       
+        <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px;">{{bulletin.message}}</div>
+        <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px;"><b>Found Near:</b> {{bulletin.address}}</div>
+        
+    </div>
 </div>
+  
 

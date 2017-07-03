@@ -58,19 +58,6 @@ app.post('/bulletin', function(req, res) {
   res.sendStatus(201);
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/login.html'));
-});
-
-// app.get('/index', (req, res) => {
-//   // app.use(express.static('client'));
-//   console.log("HIT");
-//   res.redirect('index.html');
-//   // res.sendFile(path.join(__dirname, 'client/index.html'));
-// });
-
-// app.use('/index', express.static('client/components'));
-
 app.post('/tokensignin', function (req, res) {
   client.verifyIdToken(
     req.body.idtoken,
@@ -78,22 +65,15 @@ app.post('/tokensignin', function (req, res) {
     // Or, if multiple clients access the backend:
     // [CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3],
     function (e, login) {
-      let token;
+      var token;
       const payload = login.getPayload();
-      // const userid = payload['sub'];
       if (payload) {
         token = jwt.sign(payload, process.env.MY_SECRET);
       }
       connection.query(`insert into users (email, picture) values ('${payload.email}','${payload.picture}')`);
       res.status(200).send(token);
-      // res.sendFile(path.join(__dirname, 'client/index.html'));
 
       // If request specified a G Suite domain:
       // var domain = payload['hd'];
     });
-  // app.use(express.static('client'));
-  // res.sendFile(path.join(__dirname, 'client/index.html'));
-// make access token my own give it a secret, hash it give it to client-side
-// check in the request header for Authorization the value should be Bearer and
-// the correct hash of access token
 });

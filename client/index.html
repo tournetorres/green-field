@@ -24,14 +24,14 @@
       <a class="navbar-brand" href="#">
             <div style="margin-left: 25%; color: green">petdetective</div>
         <img alt="Brand" style="width: 30%; margin-top: -30px" src="https://www.shareicon.net/data/256x256/2015/10/10/653854_print_512x512.png">
-        
+
       </a>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-      
-    <li class="active"><a href="#">Lost</a></li> 
+
+    <li class="active"><a href="#">Lost</a></li>
     <li><a href="#">Found</a></li>
     </ul>
     </div>
@@ -65,7 +65,9 @@
             .done(function( msg ) {
               console.log( "Success: " + msg );
               let tokenObj = {token: msg};
+              // This is how to set key value to client localStorage
               localStorage.setItem('tokenObj', JSON.stringify(tokenObj));
+              // This is how to get key value from client localStorage
               // let clientToken = localStorage.getItem('tokenObj');
               // console.log(JSON.parse(clientToken));
               window.location.href = "/";
@@ -95,7 +97,7 @@
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-    
+
     <script src="components/autocomplete.js"></script>
     <script src="bower_components/ngmap/build/scripts/ng-map.min.js"></script>
     <script src="map.config.js"></script>

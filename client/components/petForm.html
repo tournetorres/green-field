@@ -1,36 +1,115 @@
-<!--<script src="https://maps.googleapis.com/maps/api/place/autocomplete/json?input=748 camp street&key=AIzaSyCpf6PwUa_fHc1X-xCebvuPAyDJd_F7c3k"></script>-->
 
-<div class="col-md-6" ng-init="ctrl.render()">
-<form class="row" style="background-color:lavender;">
-  <div ng-controller="dispatchController"></div>
-  <div class="form-group">
-    <label for="lostOrFound"> Choose Lost or Found: </label><br>
-      <select name="lostOrFound" ng-model="ctrl.petState.lostOrFound">
-        <option ng-model="ctrl.petState.lostOrFound" value="{{ctrl.petState.option1}}">Lost</option>
-        <option ng-model="ctrl.petState.lostOrFound" value="{{ctrl.petState.option2}}">Found</option>
-      </select>
-      <tt>{{ctrl.petState.lostOrFound}} Pet</tt>
-      <br>
-    <label for="singleSelect"> Choose Animal Type: </label><br>
-      <select name="singleSelect" ng-model="ctrl.data.singleSelect">
-        <option ng-model="ctrl.data.singleSelect" value="{{ctrl.data.option1}}">Cat</option>
-        <option ng-model="ctrl.data.singleSelect" value="{{ctrl.data.option2}}">Dog</option>
-      </select>
-      <tt>  Type of Pet: {{ctrl.data.singleSelect}}</tt>
-    </div>
-    <div class="form-group">
+ <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<style>
+  @import url(http://fonts.googleapis.com/css?family=Roboto:400);
+body {
+  /*background-color:#fff;*/
+  -webkit-font-smoothing: antialiased;
+  font: normal 20px Roboto,arial,sans-serif;
+}
 
-      <label for="address">Last Seen: Enter Address or Nearby Business</label>
-      <input g-places-autocomplete ng-model="ctrl.place" type="text" class="form-control" id="address">
-    </div>
-    <div class="form-group">
-      <label>Enter Animal Details</label>
-      <input ng-model="ctrl.formBody" type="text" class="form-control" id="formBody">
-    </div>
-  <button ng-click="ctrl.submit(ctrl.address, ctrl.formBody)" type="submit" class="btn btn-default">Submit</button>
-</form>
-</div>
+/*.container {
+    padding: 25px;
+    position: absolute;
+}*/
+
+.form-login {
+    background-color: gray;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color: green;
+    border-width: 2px;
+    box-shadow:0 2 px 0 #cfcfcf;
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ font-size: 25px;
+ text-align: center;
+ color: white;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.wrapper {
+    text-align: center;
+
+}
+
+/*.pac-container {
+    z-index: 10000 !important;
+    width: auto !important;
+    position: initial !important;
+    left: 0 !important;
+    right: 0 !important;
+    display: block !important;
+}
+.pac-container:empty{
+    display: none !important;
+}*/
+  </style>
+
+
+ <div class="container">
+    <div class="row" >
+        <div class="col-md-6" ng-init="ctrl.render()">
+            <div ng-controller="dispatchController"></div>
+            <div style="margin-top: 15px;" id="demo" class="collapse form-login">
+              
+               <!--<button style="border-radius: 15px" class="btn btn-info">-->
+              <h4>Hi, Pet Detective!</h4>
+                 <label style="color: white" for="lostOrFound"> Choose Lost or Found: </label><br>
+                  <select name="lostOrFound" ng-model="ctrl.petState.lostOrFound">
+                    <option ng-model="ctrl.petState.lostOrFound" value="{{ctrl.petState.option1}}">Lost</option>
+                    <option ng-model="ctrl.petState.lostOrFound" value="{{ctrl.petState.option2}}">Found</option>
+                  </select>
+                  <tt style="color: white">{{ctrl.petState.lostOrFound}} Pet</tt>
+                  <br>
+                  <br>
+                <label style="color: white" style="color: white" for="singleSelect"> Choose Animal Type: </label><br>
+                <select name="singleSelect" ng-model="ctrl.data.singleSelect">
+                  <option ng-model="ctrl.data.singleSelect" value="{{ctrl.data.option1}}">Cat</option>
+                  <option ng-model="ctrl.data.singleSelect" value="{{ctrl.data.option2}}">Dog</option>
+                </select>
+                <tt style="color: white">  Type of Pet: {{ctrl.data.singleSelect}}</tt>
+
+                <div class="form-group">
+                  <br>
+                  <label style="color: white" for="inlineFormInputGroup">Last Seen: Enter Address or Nearby Business</label>
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon">+</div>
+                    <input type="text" id="inlineFormInputGroup" g-places-autocomplete ng-model="ctrl.place" id="searchTextField" class="form-control input-large chat-input" placeholder="Start Typing Address..." />
+
+                  </div>
+                </div>
+ 
+           <!--<div class="here"></div>-->
+                <div class="form-group">
+                  <label style="color: white">Enter Animal Details</label>
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon">+</div>
+                    <textarea style="height: 50px;" ng-model="ctrl.formBody" id="userPassword" class="form-control input-sm chat-input" placeholder="Animal Details" rows="2" />
+                  </div>
+                </div>
+                </br>
+                <div class="wrapper">
+                  <span class="group-btn">     
+                    <a style="width: 400px" ng-click="ctrl.submit(ctrl.address, ctrl.formBody)" href="#" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
+                  </span>
+                </div>
+  
+            </div>  
+           </div>    
 <div ng-repeat="bulletin in ctrl.bulletinData" style="color: white; margin-top: 2px;background-color:darkgreen; height:289px" class="col-md-6">
     {{bulletin}}
+    
 </div>
- <!--<script src="https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${ctrl.place}&key=AIzaSyCpf6PwUa_fHc1X-xCebvuPAyDJd_F7c3k"></script>-->
+

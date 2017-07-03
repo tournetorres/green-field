@@ -7,6 +7,7 @@ angular.module('pet-detective')
         $http.get('/bulletin')
           .then(function (data) {
             prom.resolve({
+              data: data.data,
               coords: data.data.map(function (el) {
                 return el.latlong.split(',');
               }),

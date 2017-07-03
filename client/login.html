@@ -7,7 +7,7 @@
     <meta name="google-signin-client_id" content="673527265143-l8gvqn8e0qcm4o23nf914sd9hp0tj82c.apps.googleusercontent.com">
 
     <title>Pet Detective</title>
-    <link href="styles.css" rel="stylesheet">
+    <!-- <link href="styles.css" rel="stylesheet"> -->
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
@@ -29,7 +29,9 @@
                                 <span class="page-header">
                                     <h1>Hello, Pet Detective!</h1>
                                       <div class="col-md-2">
-                                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                                        <form action="/login" method="GET">
+                                        <div class="g-signin2" type="submit" data-onsuccess="onSignIn" data-theme="dark"></div>
+                                        </form>
                                         <script>
                                         function onSignIn(googleUser) {
                                           // Useful data for your client-side scripts:
@@ -43,8 +45,12 @@
                                           xhr.onload = function() {
                                             if (xhr.readyState === 4) {
                                               if (xhr.status === 200) {
-                                                window.bool = true;
-                                                window.postRes = xhr.responseText;
+                                                // $.get(
+                                                //   "/login",
+                                                //   function(data) {
+                                                //      $('.container').empty().append($(data));
+                                                //   }
+                                              // );
                                                 console.log(xhr.responseText);
                                               } else {
                                                 console.error(xhr.statusText);

@@ -4,8 +4,12 @@ angular.module('pet-detective')
 
     this.formBody;
     this.type;
-    this.bulletinData;
     this.latlong;
+    this.render = async function () {
+      this.bulletinData = await formDataFactory.fetchFormData();
+      console.log(this.bulletinData, 'blargh');
+      return this.bulletinData;
+    }
 
     this.data = {
       singleSelect: null,
@@ -43,8 +47,8 @@ angular.module('pet-detective')
           return formDataFactory.fetchFormData();
         })
         .then((bulletins) => {
-          console.log(bulletins.data);
-          this.bulletinData = bulletins.data;
+          console.log(bulletins, 'bulletins');
+          this.bulletinData = bulletins;
           this.data.singleSelect = null;
           this.petState.lostOrFound = null;
           this.formBody = null;

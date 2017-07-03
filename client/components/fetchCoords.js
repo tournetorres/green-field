@@ -8,7 +8,7 @@ angular.module('pet-detective')
           .then(function (data) {
             prom.resolve({
               coords: data.data.map(function (el) {
-               return el.latlong.split(',');
+                return el.latlong.split(',');
               }),
             });
           });

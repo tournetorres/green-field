@@ -1,7 +1,8 @@
 <!--<script src="https://maps.googleapis.com/maps/api/place/autocomplete/json?input=748 camp street&key=AIzaSyCpf6PwUa_fHc1X-xCebvuPAyDJd_F7c3k"></script>-->
 
-<div class="col-md-6">
+<div class="col-md-6" ng-init="ctrl.render()">
 <form class="row" style="background-color:lavender;">
+  <div ng-controller="dispatchController"></div>
   <div class="form-group">
     <label for="lostOrFound"> Choose Lost or Found: </label><br>
       <select name="lostOrFound" ng-model="ctrl.petState.lostOrFound">
@@ -29,7 +30,7 @@
   <button ng-click="ctrl.submit(ctrl.address, ctrl.formBody)" type="submit" class="btn btn-default">Submit</button>
 </form>
 </div>
-<div ng-init="ctrl.load" ng-repeat="bulletin in ctrl.bulletinData" style="color: white; margin-top: 2px;background-color:darkgreen; height:289px" class="col-md-6">
+<div ng-repeat="bulletin in ctrl.bulletinData" style="color: white; margin-top: 2px;background-color:darkgreen; height:289px" class="col-md-6">
     {{bulletin}}
 </div>
  <!--<script src="https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${ctrl.place}&key=AIzaSyCpf6PwUa_fHc1X-xCebvuPAyDJd_F7c3k"></script>-->

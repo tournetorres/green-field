@@ -25,12 +25,12 @@ express
 body-parser
 dotenv
 
-Place these keys in a config file inside of your *client* folder
+Place these keys in a file called map.config.js inside of your *client* folder
 window.GEOCODE_API_KEY = 'YOUR GEOCODE API KEY';
 
 window.PLACES_API_KEY = 'YOUR PLACES API KEY';
 
-Create a .env file to store port and database variables. Localhost will suffice for db in most cases/
+Create a .env file in your root directory to store port and database variables. Localhost will suffice for db in most cases/
 
 You will need a database called petdetective, created in a mysql session. Once used, create a table called petpost with the following command: create table petpost (id integer not null auto_increment, lostOrFound varchar(20), type varchar(20) , address varchar(140), message varchar(140), date varchar(140), latlong varchar(140), primary key (id));
 ## Development
@@ -43,6 +43,7 @@ npm install
 
 It's that simple!
 ## Tasks
+To start the app run: node server.js
 
 ## Contributing
 
@@ -56,3 +57,5 @@ See CONTRIBUTING.md for contribution guidelines.
 ![img](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-BLdbYkpNZFei4Ok3tusGUT6hl3sy-QEHWuWPAIugq4cEoq3e)
 
 ![img](http://topdogsocialmedia.com/wp-content/uploads/2012/01/Google-Places-Listing.png)
+
+![img](https://www.digitalocean.com/assets/media/logos-badges/png/DO_Logo_Vertical_Blue-6321464d.png)

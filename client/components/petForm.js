@@ -4,19 +4,11 @@ angular.module('pet-detective')
     this.formBody;
     this.type;
     this.latlong;
-    this.user;
     this.render = async function () {
       this.bulletinData = await formDataFactory.fetchFormData();
       console.log(this.bulletinData, 'bulletin data');
       return this.bulletinData;
     };
-
-    // $http.get('/currUser').then((response) => {
-    //   console.log(response, 'user info for form');
-    //   this.user = response.data;
-    // }, (err) => {
-    //   console.error(err);
-    // });
 
     this.data = {
       singleSelect: null,
@@ -37,7 +29,6 @@ angular.module('pet-detective')
       $http({
         url: '/bulletin',
         method: 'POST',
-
         data: {
           lostOrFound: this.petState.lostOrFound,
           type: this.data.singleSelect,

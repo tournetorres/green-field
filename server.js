@@ -29,7 +29,7 @@ connection.connect((err) => {
   if (!err) {
     console.log('Database is connected ... nn');
   } else {
-      console.error('Error connecting database ... nn', err);
+    console.error('Error connecting database ... nn', err);
   }
 });
 
@@ -51,7 +51,7 @@ app.get('/bulletin', (req, res) => {
 });
 
 app.post('/bulletin', (req, res) => {
-  connection.query(`insert into petpost (lostOrFound, type, address, message, date, latlong, user, userpic, petpic) values ('${req.body.lostOrFound}','${req.body.type}', '${req.body.address}', '${req.body.message}', '${req.body.date}', '${req.body.latlong}', '${userInfo.currentUser}', '${userInfo.photo}'${req.body.petpic}')`, function(err, rows, fields) {
+  connection.query(`insert into petpost (lostOrFound, type, address, message, date, latlong, user, userpic, petpic) values ('${req.body.lostOrFound}', '${req.body.type}', '${req.body.address}', '${req.body.message}', '${req.body.date}', '${req.body.latlong}', '${userInfo.currentUser}', '${userInfo.photo}', '${req.body.petpic}')`, function(err, rows, fields) {
     if (err) {
       console.error(err);
     } else {
@@ -75,8 +75,8 @@ app.post('/tokensignin', function (req, res) {
       console.log(payload, 'payload')
       if (payload) {
         token = jwt.sign(payload, process.env.MY_SECRET);
+        console.log(token, 'token');
       }
-      console.log(payload);
       connection.query(`select * from users where email = '${payload.email}'`, (err, data) => {
         if (!data.length) {
           connection.query(`insert into users (email, picture, first_name, last_name) values ('${payload.email}','${payload.picture}','${payload.given_name}','${payload.family_name}')`);
@@ -90,7 +90,3 @@ app.post('/tokensignin', function (req, res) {
     });
 });
 
-// app.get('/currUser', (req, res) => {
-//   res.send(currentUser);
-//   res.end();
-// });

@@ -1,6 +1,6 @@
 
- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <style>
   @import url(http://fonts.googleapis.com/css?family=Roboto:400);
 body {
@@ -46,7 +46,7 @@ h4 {
 
 .pac-container { z-index: 10000 !important; }
 
-  </style>
+</style>
 
 
  <div class="container">
@@ -54,10 +54,9 @@ h4 {
         <div class="col-md-6" ng-init="ctrl.render()">
             <div ng-controller="dispatchController"></div>
             <div style="margin-top: 15px;" id="demo" class="collapse form-login">
-              
-               <!--<button style="border-radius: 15px" class="btn btn-info">-->
+              <!--<button style="border-radius: 15px" class="btn btn-info">-->
               <h4>Hi, Pet Detective!</h4>
-                 <label style="color: white" for="lostOrFound"> Choose Lost or Found: </label><br>
+                <label style="color: white" for="lostOrFound"> Choose Lost or Found: </label><br>
                   <select name="lostOrFound" ng-model="ctrl.petState.lostOrFound">
                     <option ng-model="ctrl.petState.lostOrFound" value="{{ctrl.petState.option1}}">Lost</option>
                     <option ng-model="ctrl.petState.lostOrFound" value="{{ctrl.petState.option2}}">Found</option>
@@ -82,8 +81,7 @@ h4 {
                     </div>
                   </div>
                 </div>
- 
-           <!--<div class="here"></div>-->
+          <!--<div class="here"></div>-->
                 <div class="form-group">
                   <label style="color: white">Enter Animal Details</label>
                   <div class="input-group mb-2 mr-sm-2 mb-sm-0">
@@ -97,20 +95,20 @@ h4 {
                     <a style="width: 400px" ng-click="ctrl.submit(ctrl.address, ctrl.formBody)" href="#" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
                   </span>
                 </div>
-  
             </div>  
-           </div>
+          </div>
           
 <div ng-repeat="bulletin in ctrl.bulletinData" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" class="col-md-6">
-   <div style="border-radius: 10px;color: gray; padding: 15px;margin-top: 5px;background-color:lightgray; height:auto">
+  <div style="border-radius: 10px;color: gray; padding: 15px;margin-top: 5px;background-color:lightgray; height:auto">
 
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
-        <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
-        <h4 style="height: 50px;font-size: 19px"><b>{{bulletin.date}}</b></h4>
-       
-        <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px;">{{bulletin.message}}</div>
-        <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px;"><b>Found Near:</b> {{bulletin.address}}</div>
-        
+    <h4 style="padding: 5px; float:right">{{bulletin.user}}</h2>
+    <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
+    <h4 style="height: 50px;font-size: 19px"><b>{{bulletin.date}}</b></h4>
+
+    <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px;">{{bulletin.message}}</div>
+    <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px;"><b>Found Near:</b> {{bulletin.address}}</div>
+  
     </div>
 </div>
   

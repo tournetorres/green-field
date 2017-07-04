@@ -1,15 +1,22 @@
 angular.module('pet-detective')
   .controller('petFormController', function ($http, $window, formDataFactory) {
     this.place = null;
-
     this.formBody;
     this.type;
     this.latlong;
+    this.user;
     this.render = async function () {
       this.bulletinData = await formDataFactory.fetchFormData();
-      console.log(this.bulletinData, 'blargh');
+      console.log(this.bulletinData, 'bulletin data');
       return this.bulletinData;
-    }
+    };
+
+    // $http.get('/currUser').then((response) => {
+    //   console.log(response, 'user info for form');
+    //   this.user = response.data;
+    // }, (err) => {
+    //   console.error(err);
+    // });
 
     this.data = {
       singleSelect: null,

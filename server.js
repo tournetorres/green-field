@@ -19,7 +19,7 @@ const GoogleAuth = require('google-auth-library');
 const jwt = require('jsonwebtoken');
 
 const auth = new GoogleAuth;
-const client = new auth.OAuth2('673527265143-l8gvqn8e0qcm4o23nf914sd9hp0tj82c.apps.googleusercontent.com', '', '');
+const client = new auth.OAuth2('1036579880288-7vaoh4gg8d0hhapkcuummk2pvqpu1sf0.apps.googleusercontent.com', '', '');
 
 app.use(express.static('client'));
 
@@ -31,7 +31,7 @@ connection.connect((err) => {
   if (!err) {
     console.log('Database is connected ... nn');
   } else {
-    console.error('Error connecting database ... nn');
+      console.error('Error connecting database ... nn', err);
   }
 });
 
@@ -61,7 +61,7 @@ app.post('/bulletin', function(req, res) {
 app.post('/tokensignin', function (req, res) {
   client.verifyIdToken(
     req.body.idtoken,
-    '673527265143-l8gvqn8e0qcm4o23nf914sd9hp0tj82c.apps.googleusercontent.com',
+    '1036579880288-7vaoh4gg8d0hhapkcuummk2pvqpu1sf0.apps.googleusercontent.com',
     // Or, if multiple clients access the backend:
     // [CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3],
     function (e, login) {

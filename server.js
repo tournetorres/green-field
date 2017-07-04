@@ -29,7 +29,7 @@ connection.connect((err) => {
   if (!err) {
     console.log('Database is connected ... nn');
   } else {
-    console.error(err, 'DB error');
+      console.error('Error connecting database ... nn', err);
   }
 });
 

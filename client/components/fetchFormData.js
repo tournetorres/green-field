@@ -7,7 +7,6 @@ angular.module('pet-detective')
           method: 'GET',
         })
           .then((response) => {
-            console.log(response.data, 'form data');
             return response.data;
           },
           (err) => { // optional

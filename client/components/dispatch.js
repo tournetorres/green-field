@@ -4,7 +4,6 @@ angular.module('pet-detective')
     this.information = formDataFactory.fetchFormData();
     this.information.then(response => response.forEach((info) => {
       this.storage.push(info);
-      console.log(this.storage, 'sy');
     }));
   })
   .directive('dispatch', function dispatchDirective() {

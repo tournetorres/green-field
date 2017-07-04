@@ -7,7 +7,6 @@ angular.module('pet-detective')
     this.latlong;
     this.render = async function () {
       this.bulletinData = await formDataFactory.fetchFormData();
-      console.log(this.bulletinData, 'blargh');
       return this.bulletinData;
     }
 

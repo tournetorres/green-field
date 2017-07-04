@@ -29,7 +29,13 @@ window.PLACES_API_KEY = 'YOUR PLACES API KEY';
 
 Create a .env file in your root directory to store port and database variables. Localhost will suffice for db in most cases
 
-You will need a database called petdetective, created in a mysql session. Once used, create a table called petpost with the following command: `create table petpost (id integer not null auto_increment, lostOrFound varchar(20), type varchar(20) , address varchar(140), message varchar(140), date varchar(140), latlong varchar(140), primary key (id));`
+You will need a database called petdetective, created in a mysql session. Once used, create a table called petpost with the following command: 
+
+`create table petpost (id integer not null auto_increment, lostOrFound varchar(20), type varchar(20) , address varchar(140), message varchar(140), date varchar(140), latlong varchar(140), user varchar(75), petPic longblob, primary key (id));`
+
+And create a users table with the following:
+
+`create table users ( email varchar(75) NOT NULL UNIQUE, picture LONGBLOB );`
 
 ## Installing Dependencies
 

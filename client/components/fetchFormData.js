@@ -9,14 +9,15 @@ angular.module('pet-detective')
           .then((response) => {
             return response.data;
           },
-          (response) => { // optional
-            console.log('fail');
+          (err) => { // optional
+            console.error(err);
           });
       },
     };
   })
   .controller('formDataController', function (formDataFactory) {
     this.data = formDataFactory.fetchFormData();
+    console.log(this.data, 'data from form factory');
   })
   .directive('fetchFormData', function fetchFormDataDirective() {
     return {

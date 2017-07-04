@@ -59,7 +59,7 @@
                                           const profile = googleUser.getBasicProfile();
                                           const email = profile.getEmail();
                                           // The ID token you need to pass to your backend:
-                                          let idtoken = googleUser.getAuthResponse().id_token;
+                                          let idtoken = googleUser.getAuthResponse().id_token;                                         
                                           $.ajax({
                                             method: "POST",
                                             url: "/tokensignin",
@@ -73,7 +73,6 @@
                                               // console.log(JSON.parse(clientToken));
                                               window.location.href = "/";
                                             });
-
                                         }
                                         </script>
                                       </div>
@@ -95,10 +94,7 @@
                     </div>
                 </div>
               <div class="col-md-4">
-
             </div>
-
-
         </div>
     </div>
 

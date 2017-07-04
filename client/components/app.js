@@ -3,7 +3,6 @@ angular.module('pet-detective', ['google.places'])
 
   })
 
-
   .directive('app', function () {
     return {
       scope: {},

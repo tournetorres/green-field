@@ -5,7 +5,6 @@ angular.module('pet-detective')
     this.formBody;
     this.type;
     this.latlong;
-    this.user;
     this.render = async function () {
       this.bulletinData = await formDataFactory.fetchFormData();
       console.log(this.bulletinData, 'bulletin data');
@@ -40,10 +39,9 @@ angular.module('pet-detective')
           date: this.date,
           latlong: [this.place.geometry.location.lat(), this.place.geometry.location.lng()],
         },
-
       })
         .then((response) => {
-          console.log(response);
+          console.log(response, 'whats this?');
           console.log('success');
           return formDataFactory.fetchFormData();
         })

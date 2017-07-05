@@ -15,24 +15,24 @@ body {
 }*/
 
 .form-login {
-    background-color: gray;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 15px;
-    border-color: green;
-    border-width: 2px;
-    box-shadow:0 2 px 0 #cfcfcf;
+  background-color: gray;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+  border-color: green;
+  border-width: 2px;
+  box-shadow:0 2 px 0 #cfcfcf;
 }
 
 h4 { 
- border:0 solid #fff; 
- border-bottom-width:1px;
- padding-bottom:10px;
- font-size: 25px;
- text-align: center;
- color: white;
+  border:0 solid #fff; 
+  border-bottom-width:1px;
+  padding-bottom:10px;
+  font-size: 25px;
+  text-align: center;
+  color: white;
 }
 
 .form-control {
@@ -101,10 +101,11 @@ h4 {
 <div ng-repeat="bulletin in ctrl.bulletinData" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" class="col-md-6">
   <div style="border-radius: 10px;color: gray; padding: 15px;margin-top: 5px;background-color:lightgray; height:auto">
 
+    <img style="border-radius: 50px" ng-src="{{bulletin.userpic}}" />
+    <a id="email" ng-href="mailto:{{bulletin.user}}">email</a>
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
-    <h4 style="padding: 5px; float:right">{{bulletin.user}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
-    <h4 style="height: 50px;font-size: 19px"><b>{{bulletin.date}}</b></h4>
+    <h4 style="font-size: 19px"><b>{{bulletin.date}}</b></h4>
 
     <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px;">{{bulletin.message}}</div>
     <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px;"><b>Found Near:</b> {{bulletin.address}}</div>

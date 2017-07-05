@@ -16,8 +16,8 @@ angular.module('pet-detective')
     };
   })
   .controller('formDataController', function (formDataFactory) {
-    this.data = formDataFactory.fetchFormData();
-    console.log(this.data, 'data from form factory');
+    // this.data = formDataFactory.fetchFormData();
+    // console.log(this.data, 'data from form factory');
   })
   .directive('fetchFormData', function fetchFormDataDirective() {
     return {

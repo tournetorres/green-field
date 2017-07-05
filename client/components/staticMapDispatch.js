@@ -1,6 +1,9 @@
 
 angular.module('pet-detective')
   .controller('staticMapDispatchController', function (fetchCoordsFactory) {
+    this.createMap = () => {
+
+    };
     fetchCoordsFactory.fetchCoords().then(function (data) {
       this.woa = {
         city: 'PET',
@@ -46,7 +49,7 @@ angular.module('pet-detective')
       },
       restrict: 'E',
       template: "<div style='border-radius: 10px' ng-model='ctrl.mymarker' id='map-canvas'></div>",
-      controller: 'staticMapDispatchController',
+      controller: 'petFormController',
       controllerAs: 'ctrl',
       bindToController: true,
       replace: true,

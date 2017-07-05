@@ -24,7 +24,7 @@
         <span class="icon-bar"></span>
     </button>
       <a class="navbar-brand" href="#">
-            <div style="font-size: 35px; margin-left: 17%; color: green">petdetective</div>
+        <div style="font-size: 35px; margin-left: 17%; color: green">petdetective</div>
         <img alt="Brand" style="width: 20%; margin-top: -30px" src="https://www.shareicon.net/data/256x256/2015/10/10/653854_print_512x512.png">
 
       </a>
@@ -58,6 +58,8 @@
                                           // Useful data for your client-side scripts:
                                           const profile = googleUser.getBasicProfile();
                                           const email = profile.getEmail();
+                                          localStorage.setItem('userProfile', JSON.stringify(profile));
+                                          localStorage.setItem('userEmail', email);
                                           // The ID token you need to pass to your backend:
                                           let idtoken = googleUser.getAuthResponse().id_token;                                         
                                           $.ajax({

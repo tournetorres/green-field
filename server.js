@@ -52,7 +52,7 @@ app.get('/bulletin', (req, res) => {
 });
 
 app.post('/bulletin', (req, res) => {
-  connection.query(`insert into petpost (lostOrFound, type, address, message, date, latlong, user, userpic, petpic) values ('${req.body.lostOrFound}', '${req.body.type}', '${req.body.address}', '${req.body.message}', '${req.body.date}', '${req.body.latlong}', '${userInfo.currentUser}', '${userInfo.photo}', '${req.body.petpic}')`, function(err, rows, fields) {
+  connection.query(`insert into petpost (lostOrFound, type, address, message, date, latlong, user, userpic, petpic) values ('${req.body.lostOrFound}', '${req.body.type}', '${req.body.address}', '${req.body.message}', '${req.body.date}', '${req.body.latlong}', '${req.body.user}', '${req.body.userpic}', '${req.body.petpic}')`, function(err, rows, fields) {
     if (err) {
       console.error(err);
     } else {

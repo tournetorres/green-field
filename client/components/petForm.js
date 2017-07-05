@@ -1,6 +1,8 @@
 angular.module('pet-detective')
-  .controller('petFormController', function ($http, $window, formDataFactory, $scope) {
-    console.log($scope)
+  .controller('petFormController', function ($http, $window, formDataFactory) {
+    console.log(localStorage.getItem('userEmail'), 'profile info');
+    this.profileInfo = JSON.parse(localStorage.getItem('userProfile'));
+    this.email = localStorage.getItem('userEmail');
     this.place = null;
     this.formBody;
     this.type;
@@ -32,6 +34,8 @@ angular.module('pet-detective')
         url: '/bulletin',
         method: 'POST',
         data: {
+          user: this.email,
+          userpic: this.profileInfo.Paa,
           lostOrFound: this.petState.lostOrFound,
           type: this.data.singleSelect,
           address: this.place.formatted_address,

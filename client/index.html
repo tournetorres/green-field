@@ -46,29 +46,29 @@
     }
     </script>
     <script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        let profile = googleUser.getBasicProfile();
-        // const email = profile.getEmail();
-        // localStorage.setItem('userProfile', JSON.stringify(profile));
-        // The ID token you need to pass to your backend:
-        let idtoken = googleUser.getAuthResponse().id_token;
-        $.ajax({
-          method: "POST",
-          url: "/tokensignin",
-          data: { idtoken }
-        })
-          .done(function( msg ) {
-            console.log( "Success: " + msg );
-            let tokenObj = {token: msg};
-            // This is how to set key value to client localStorage
-            localStorage.setItem('tokenObj', JSON.stringify(tokenObj));
-            // This is how to get key value from client localStorage
-            // let clientToken = localStorage.getItem('tokenObj');
-            // console.log(JSON.parse(clientToken));
-            window.location.href = "/";
-          });
-      }
+      // function onSignIn(googleUser) {
+      //   // Useful data for your client-side scripts:
+      //   let profile = googleUser.getBasicProfile();
+      //   // const email = profile.getEmail();
+      //   // localStorage.setItem('userProfile', JSON.stringify(profile));
+      //   // The ID token you need to pass to your backend:
+      //   let idtoken = googleUser.getAuthResponse().id_token;
+      //   $.ajax({
+      //     method: "POST",
+      //     url: "/tokensignin",
+      //     data: { idtoken }
+      //   })
+      //     .done(function( msg ) {
+      //       console.log( "Success: " + msg );
+      //       let tokenObj = {token: msg};
+      //       // This is how to set key value to client localStorage
+      //       localStorage.setItem('tokenObj', JSON.stringify(tokenObj));
+      //       // This is how to get key value from client localStorage
+      //       // let clientToken = localStorage.getItem('tokenObj');
+      //       // console.log(JSON.parse(clientToken));
+      //       window.location.href = "/";
+      //     });
+      // }
         function signOut() {
           var auth2 = gapi.auth2.getAuthInstance();
           auth2.signOut().then(function () {

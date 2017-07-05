@@ -48,8 +48,9 @@
     <script>
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
-        const profile = googleUser.getBasicProfile();
-        const email = profile.getEmail();
+        let profile = googleUser.getBasicProfile();
+        // const email = profile.getEmail();
+        // localStorage.setItem('userProfile', JSON.stringify(profile));
         // The ID token you need to pass to your backend:
         let idtoken = googleUser.getAuthResponse().id_token;
         $.ajax({

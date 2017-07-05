@@ -37,10 +37,9 @@ angular.module('pet-detective')
           date: this.date,
           latlong: [this.place.geometry.location.lat(), this.place.geometry.location.lng()],
         },
-
       })
         .then((response) => {
-          console.log(response);
+          console.log(response, 'whats this?');
           console.log('success');
           return formDataFactory.fetchFormData();
         })

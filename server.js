@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const GoogleAuth = require('google-auth-library');
+const request = require('request-promise');
 
 const app = express();
 
@@ -75,7 +76,6 @@ app.post('/tokensignin', function (req, res) {
       console.log(payload, 'payload')
       if (payload) {
         token = jwt.sign(payload, process.env.MY_SECRET);
-        console.log(token, 'token');
       }
       connection.query(`select * from users where email = '${payload.email}'`, (err, data) => {
         if (!data.length) {

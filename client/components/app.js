@@ -1,6 +1,6 @@
 angular.module('pet-detective', ['google.places'])
-  .controller('appController', function () {
-
+  .controller('appController', function ($window) {
+    console.log(localStorage.getItem('userProfile'), 'localStorage');
   })
 
   .directive('app', function () {

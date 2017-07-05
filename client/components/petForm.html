@@ -98,7 +98,7 @@ h4 {
             </div>  
           </div>
           
-<div ng-repeat="bulletin in ctrl.bulletinData" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" class="col-md-6">
+<div ng-repeat="bulletin in ctrl.bulletinData" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" class="col-md-6" ng-click="ctrl.bullClick(bulletin)">
   <div style="border-radius: 10px;color: gray; padding: 15px;margin-top: 5px;background-color:lightgray; height:auto">
 
     <img style="border-radius: 50px" ng-src="{{bulletin.userpic}}" />

@@ -57,18 +57,18 @@ angular.module('pet-detective')
         });
 
     };
-    this.createMap = () => {
+    this.createMap = (lat = 29.945947, long = -90.070023) => {
       this.woa = {
         city: 'PET',
       };
       //set up new marker images
       let blueMarker = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + '0000FF');
       let redMarker = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + 'ff0000');
-
+      
       // set up map
       this.mapOptions = {
         zoom: 12,
-        center: new google.maps.LatLng(29.945947, -90.070023),
+        center: new google.maps.LatLng(lat, long),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
       };
 
@@ -92,6 +92,9 @@ angular.module('pet-detective')
         };
         this.addMarker();
       }
+    };
+    this.bullClick = (bull) => {
+      this.createMap(bull.lat, bull.long)
     };
   })
   .directive('petForm', function petFormDirective() {

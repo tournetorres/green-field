@@ -35,7 +35,7 @@ You will need a database called petdetective, created in a mysql session. Once u
 
 And create a users table with the following:
 
-`create table users ( email varchar(75) NOT NULL UNIQUE, picture varchar(220));`
+`create table users ( email varchar(75) NOT NULL UNIQUE, picture varchar(220), first_name varchar(25), last_name varchar(25));`
 
 ## Installing Dependencies
 

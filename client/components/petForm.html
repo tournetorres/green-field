@@ -41,7 +41,6 @@ h4 {
 
 .wrapper {
     text-align: center;
-
 }
 
 .pac-container { z-index: 10000 !important; }
@@ -99,9 +98,14 @@ h4 {
           </div>
           
 <div ng-repeat="bulletin in ctrl.bulletinData" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" class="col-md-6" ng-click="ctrl.bullClick(bulletin)">
+  <div>
+    <button type="button" class="close" aria-label="Close" ng-click="ctrl.deletePost(bulletin)">
+      <span style="top: 5px" class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+    </button>
+  </div>
   <div style="border-radius: 10px;color: gray; padding: 15px;margin-top: 5px;background-color:lightgray; height:auto">
 
-    <img style="border-radius: 50px" ng-src="{{bulletin.userpic}}" />
+    <img style="border-radius: 50px; height: 70px" ng-src="{{bulletin.userpic}}" />
     <a id="email" ng-href="mailto:{{bulletin.user}}">email</a>
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>

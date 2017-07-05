@@ -1,6 +1,5 @@
 angular.module('pet-detective')
   .controller('petFormController', function ($http, $window, formDataFactory) {
-    console.log(localStorage.getItem('userEmail'), 'profile info');
     this.profileInfo = JSON.parse(localStorage.getItem('userProfile'));
     this.email = localStorage.getItem('userEmail');
     this.place = null;
@@ -51,7 +50,6 @@ angular.module('pet-detective')
         })
         .then((bulletins) => {
           console.log(bulletins, 'bulletins');
-          console.log(this);
           this.bulletinData = bulletins;
           this.data.singleSelect = null;
           this.petState.lostOrFound = null;
@@ -59,8 +57,8 @@ angular.module('pet-detective')
           this.address = null;
           this.createMap();
         });
-
     };
+
     this.createMap = (lat = 29.945947, long = -90.070023) => {
       this.woa = {
         city: 'PET',
@@ -98,7 +96,18 @@ angular.module('pet-detective')
       }
     };
     this.bullClick = (bull) => {
-      this.createMap(bull.lat, bull.long)
+      this.createMap(bull.lat, bull.long);
+    };
+
+    this.deletePost = (bully) => {
+      $http.post('/deletePost', bully)
+        .then((response) => {
+          return formDataFactory.fetchFormData();
+        })
+        .then((bulletins) => {
+          this.bulletinData = bulletins;
+          this.createMap();
+        });
     };
   })
   .directive('petForm', function petFormDirective() {

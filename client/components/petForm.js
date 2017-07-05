@@ -64,7 +64,7 @@ angular.module('pet-detective')
       //set up new marker images
       let blueMarker = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + '0000FF');
       let redMarker = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + 'ff0000');
-      
+
       // set up map
       this.mapOptions = {
         zoom: 12,
@@ -91,6 +91,19 @@ angular.module('pet-detective')
           });
         };
         this.addMarker();
+        google.maps.event.addListener(this.mymarker, 'click' ,function() {
+          var infowindow = new google.maps.InfoWindow({
+            content:"Hello World!"
+          });
+        infowindow.open(this.mymapdetail, this.mymarker);
+        });
+        // this.mymarker.addListener('click', function() {
+        //   var info = new google.maps.InfoWindow({
+        //     content: 'hello'
+        //   });
+        //   console.log(info);
+        //   info.open(this.mymapdetail, this.mymarker);
+        // });
       }
     };
     this.bullClick = (bull) => {

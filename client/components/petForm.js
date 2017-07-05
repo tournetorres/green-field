@@ -29,6 +29,7 @@ angular.module('pet-detective')
     };
 
     this.submit = function (place, formBody) {
+      console.log(this)
       this.date = new Date().toString();
       $http({
         url: '/bulletin',
@@ -88,26 +89,27 @@ angular.module('pet-detective')
         this.addMarker = function () {
           this.mymarker = new google.maps.Marker({
             map: this.mymapdetail,
-            animation: google.maps.Animation.DROP,
+            // animation: google.maps.Animation.DROP,
             position: new google.maps.LatLng(this.bulletinData[i].lat, this.bulletinData[i].long),
             title: this.woa.city,
             icon: this.bulletinData[i].lostOrFound === 'Lost' ? redMarker : blueMarker,
           });
         };
         this.addMarker();
-        google.maps.event.addListener(this.mymarker, 'click' ,function() {
+        console.log(this.mymarker);
+        let sco = this;
+        let map = this.mymapdetail;
+        let marker = this.mymarker
+        google.maps.event.addListener(sco.mymarker, 'click' ,function() {
           var infowindow = new google.maps.InfoWindow({
-            content:"Hello World!"
+            content: sco.bulletinData[i].message
           });
-        infowindow.open(this.mymapdetail, this.mymarker);
+          if (sco.open) {
+            sco.open.close();
+          }
+          infowindow.open(map, marker);
+          sco.open = infowindow;
         });
-        // this.mymarker.addListener('click', function() {
-        //   var info = new google.maps.InfoWindow({
-        //     content: 'hello'
-        //   });
-        //   console.log(info);
-        //   info.open(this.mymapdetail, this.mymarker);
-        // });
       }
     };
     this.bullClick = (bull) => {

@@ -29,6 +29,7 @@ angular.module('pet-detective')
     };
 
     this.submit = function (place, formBody) {
+      console.log(this)
       this.date = new Date().toString();
       $http({
         url: '/bulletin',
@@ -68,7 +69,7 @@ angular.module('pet-detective')
       //set up new marker images
       let blueMarker = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + '0000FF');
       let redMarker = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + 'ff0000');
-      
+
       // set up map
       this.mapOptions = {
         zoom: 12,
@@ -88,13 +89,27 @@ angular.module('pet-detective')
         this.addMarker = function () {
           this.mymarker = new google.maps.Marker({
             map: this.mymapdetail,
-            animation: google.maps.Animation.DROP,
+            // animation: google.maps.Animation.DROP,
             position: new google.maps.LatLng(this.bulletinData[i].lat, this.bulletinData[i].long),
             title: this.woa.city,
             icon: this.bulletinData[i].lostOrFound === 'Lost' ? redMarker : blueMarker,
           });
         };
         this.addMarker();
+        console.log(this.mymarker);
+        let sco = this;
+        let map = this.mymapdetail;
+        let marker = this.mymarker
+        google.maps.event.addListener(sco.mymarker, 'click' ,function() {
+          var infowindow = new google.maps.InfoWindow({
+            content: sco.bulletinData[i].message
+          });
+          if (sco.open) {
+            sco.open.close();
+          }
+          infowindow.open(map, marker);
+          sco.open = infowindow;
+        });
       }
     };
     this.bullClick = (bull) => {

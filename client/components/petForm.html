@@ -127,13 +127,13 @@ h4 {
 
  <div class="container">
   <div class="row">
-    <div style="border-radius: 10px; background-color: white; height: 100px;" id="addNew" class="col-md-6">
+    <div style="border-radius: 10px;padding: 10px; background-color: white" id="addNew">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
+          <div>
           <h2>Search Pets by Neighborhood, etc</h2> 
             <div id="custom-search-input">
-              <div class="input-group col-md-9" style="width: 600px">
+              <div class="input-group col-md-9">
                 <input ng-model="ctrl.searchTerm" type="text"  class="form-control input-lg" placeholder="Search..." />
                 <span class="input-group-btn">
                   <button ng-click="ctrl.fetchSearchResults(ctrl.searchTerm)" class="btn btn-info btn-lg" type="button">
@@ -147,7 +147,7 @@ h4 {
       </div>
     </div>
     <div class="row" >
-        <div class="col-md-6" ng-init="ctrl.render()">
+        <div ng-init="ctrl.render()">
 
             <div ng-controller="dispatchController"></div>
 
@@ -211,7 +211,7 @@ h4 {
             </div>  
           </div>
           
-<div ng-repeat="bulletin in ctrl.bulletinData" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" class="col-md-6" ng-click="ctrl.bullClick(bulletin)">
+<div ng-repeat="bulletin in ctrl.bulletinData" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" ng-click="ctrl.bullClick(bulletin)">
   <div ng-if="bulletin.user === ctrl.email">
     <button type="button" class="close" aria-label="Close" ng-click="ctrl.deletePost(bulletin)">
       <span style="top: 5px" class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
@@ -224,13 +224,32 @@ h4 {
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
     <h4 style="font-size: 19px"><b>{{bulletin.date}}</b></h4>
-    <div ng-show={{bulletin.petPic}}>
+    <!--<div ng-show={{bulletin.petPic}}>
       <img src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block" />
+    </div>-->
+    <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">         
+            <img src="" id="imagepreview" style="width: 100%; height: auto" >
+          </div>
+        </div>
+      </div>
     </div>
+    <script>
+      $(".imaaage").on("click", function(e) {
+        console.log('hit')
+        let target = e.currentTarget
+         $('#imagepreview').attr('src', $(target).attr('src')); // here asign the image to the modal when the user click the enlarge link
+         $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+      });
+    </script>
+
     <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px; display: inline;">{{bulletin.message}}</div>
     </br>
     </br>
-    <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px; display: inline"><b>Found Near:</b> {{bulletin.address}}</div>
+    <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px; display: inline"><b>{{bulletin.lostOrFound}} Near:</b> {{bulletin.address}}</div>
   
     </div>
 </div>

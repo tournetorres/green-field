@@ -7,6 +7,7 @@ angular.module('pet-detective')
     this.formBody;
     this.type;
     this.latlong;
+    this.img;
     this.render = async function () {
       this.bulletinData = await formDataFactory.fetchFormData();
       console.log(this.bulletinData, 'bulletin data');
@@ -28,8 +29,10 @@ angular.module('pet-detective')
       option2: 'Found',
     };
 
-    this.submit = function (place, formBody) {
+    this.submit = function (place, formBody, img) {
       console.log(this)
+      console.log(img, 'image god damn it');
+      console.log(window.imgSrc);
       this.date = new Date().toString();
       $http({
         url: '/bulletin',
@@ -43,6 +46,7 @@ angular.module('pet-detective')
           message: formBody,
           date: this.date,
           latlong: [this.place.geometry.location.lat(), this.place.geometry.location.lng()],
+          petPic: window.imgSrc,
         },
       })
         .then((response) => {
@@ -58,6 +62,7 @@ angular.module('pet-detective')
           this.petState.lostOrFound = null;
           this.formBody = null;
           this.address = null;
+          this.img = null;
           this.createMap();
         });
 

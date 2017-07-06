@@ -89,10 +89,25 @@ h4 {
                     <textarea style="height: 50px;" ng-model="ctrl.formBody" id="userPassword" class="form-control input-sm chat-input" placeholder="Animal Details" rows="2" />
                   </div>
                 </div>
+                <div ng-init="imgSrc" ng-model="ctrl.img">{{ctrl.img}}</div>
+                <img ng-src="ctrl.img">{{ctrl.img}}</img>
+                <a href="#" id="upload_widget_opener">Upload Picture of your pet</a>
+                <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
+
+                <script type="text/javascript"> 
+                  document.getElementById("upload_widget_opener").addEventListener("click", function() {
+                    cloudinary.openUploadWidget({ cloud_name: 'rose8190', upload_preset: 'ipcueltn'}, 
+                      function(error, result) { console.log(error, result) 
+                        window.imgSrc = result[0].secure_url;
+                        img = result[0].secure_url;
+                        console.log(window.imgSrc);
+                      });
+                  }, false);
+                </script>
                 </br>
                 <div class="wrapper">
                   <span class="group-btn">     
-                    <a style="width: 400px" ng-click="ctrl.submit(ctrl.address, ctrl.formBody)" href="#" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
+                    <a style="width: 400px" ng-click="ctrl.submit(ctrl.address, ctrl.formBody, window.imgSrc)" href="#" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
                   </span>
                 </div>
             </div>  
@@ -106,9 +121,12 @@ h4 {
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
     <h4 style="font-size: 19px"><b>{{bulletin.date}}</b></h4>
+    <img src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: inline"/>
 
-    <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px;">{{bulletin.message}}</div>
-    <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px;"><b>Found Near:</b> {{bulletin.address}}</div>
+    <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px; display: inline;">{{bulletin.message}}</div>
+    </br>
+    </br>
+    <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px; display: inline"><b>Found Near:</b> {{bulletin.address}}</div>
   
     </div>
 </div>

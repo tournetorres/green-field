@@ -210,7 +210,7 @@ h4 {
             </div>  
           </div>
           
-<div ng-repeat="bulletin in ctrl.bulletinData" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" ng-click="ctrl.bullClick(bulletin)">
+<div ng-repeat="bulletin in ctrl.bulletinData | orderBy:'$index':true" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" ng-click="ctrl.bullClick(bulletin)">
   <div ng-if="bulletin.user === ctrl.email">
     <button type="button" class="close" aria-label="Close" ng-click="ctrl.deletePost(bulletin)">
       <span style="top: 5px" class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
@@ -223,10 +223,9 @@ h4 {
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
     <h4 style="font-size: 19px"><b>{{bulletin.date}}</b></h4>
-    <!--<div ng-show={{bulletin.petPic}}>
-      <img src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block" />
-    </div>-->
-    <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
+    <div ng-show={{bulletin.petPic}}>
+      <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
+    </div>
     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">

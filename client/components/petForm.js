@@ -28,10 +28,8 @@ angular.module('pet-detective')
       option2: 'Found',
     };
 
-    this.submit = function (place, formBody, img) {
-      console.log(this)
-      console.log(img, 'image god damn it');
-      console.log(window.imgSrc);
+    this.submit = function (place, formBody) {
+      console.log(this.place, 'this.place')
       this.date = new Date().toString();
       $http({
         url: '/bulletin',

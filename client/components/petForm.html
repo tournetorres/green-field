@@ -49,27 +49,31 @@ h4 {
 
 
  <div class="container">
+  <div class="row">
+    <div style="border-radius: 10px; background-color: white; height: 100px;" id="addNew" class="col-md-6">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+          <h2>Search Pets by Neighborhood, etc</h2> 
+            <div id="custom-search-input">
+              <div class="input-group col-md-9" style="width: 600px">
+                <input ng-model="ctrl.searchTerm" type="text"  class="form-control input-lg" placeholder="Search..." />
+                <span class="input-group-btn">
+                  <button ng-click="ctrl.fetchSearchResults(ctrl.searchTerm)" class="btn btn-info btn-lg" type="button">
+                    <i class="glyphicon glyphicon-search"></i> 
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row" >
         <div class="col-md-6" ng-init="ctrl.render()">
+
             <div ng-controller="dispatchController"></div>
-            <div style="border-radius: 10px; background-color: white; height: 100px;" id="addNew" class="col-md-6">
-              <div class="container">
-                <div class="row">
-                      <div class="col-md-4">
-                      <h2>Search Pets by Neighborhood, Breed, etc</h2> 
-                          <div id="custom-search-input">
-                              <div class="input-group col-md-9" style="width: 600px">
-                                  <input ng-model="ctrl.searchTerm" type="text"  class="form-control input-lg" placeholder="Search..." />
-                                  <span class="input-group-btn">
-                                      <button ng-click="ctrl.fetchSearchResults(ctrl.searchTerm)" class="btn btn-info btn-lg" type="button">
-                                          <i class="glyphicon glyphicon-search"></i> 
-                                      </button>
-                                  </span>
-                              </div>
-                          </div>
-                      </div>
-                </div>
-              </div>
+
             <div style="margin-top: 15px;" id="demo" class="collapse form-login">
               <!--<button style="border-radius: 15px" class="btn btn-info">-->
               <h4>Hi, Pet Detective!</h4>

@@ -19,6 +19,7 @@ angular.module('pet-detective')
           console.log(response.data, 'data in search factory');
           this.bulletinData = response.data;
           console.log(this.searchResults, 'in here ');
+          this.createMap();
         }, (err) => {
           console.error(err);
         });
@@ -45,10 +46,7 @@ angular.module('pet-detective')
     };
 
     this.submit = function (place, formBody, img) {
-      console.log(this)
-      console.log(img, 'image god damn it');
-      console.log(window.imgSrc);
-      this.date = new Date().toString();
+      this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
       $http({
         url: '/bulletin',
         method: 'POST',

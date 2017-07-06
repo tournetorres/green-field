@@ -21,7 +21,7 @@ angular.module('pet-detective')
           console.log(this.searchResults, 'in here ');
           this.createMap();
         }, (err) => {
-          console.error(err);
+          console.error(err, 'error searching for pet controller');
         });
     };
     this.render = async function () {
@@ -113,7 +113,6 @@ angular.module('pet-detective')
           });
         };
         this.addMarker();
-        console.log(this.mymarker);
         let sco = this;
         let map = this.mymapdetail;
         let marker = this.mymarker

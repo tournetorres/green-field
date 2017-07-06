@@ -28,9 +28,9 @@ app.use(bodyParser.json());
 
 connection.connect((err) => {
   if (!err) {
-    console.log('Database is connected ... nn');
+    console.log('Database is connected ...');
   } else {
-    console.error('Error connecting database ... nn', err);
+    console.error('Error connecting to database ...', err);
   }
 });
 
@@ -58,12 +58,13 @@ app.post('/bulletin', (req, res) => {
     } else {
       console.log('Your post has been submitted');
     }
-  });
+  }); 
   res.sendStatus(201);
 });
-app.post('/search', (req, res) => {
-  console.log(req.body.searchField, 'should be SEARCH field');
-  connection.query(`select * from petpost where address like '%${req.body.searchField}%' or message like '%${req.body.searchField}%' or type like '%${req.body.searchField}%'`, function(err, rows, fields){
+
+app.get('/search', (req, res) => {
+  console.log(req.params, 'should be SEARCH field');
+  connection.query(`select * from petpost where address like '%${req.body.searchField}%' or message like '%${req.body.searchField}%' or type like '%${req.body.searchField}%' or date like'%${req.body.searchField}%'`, function(err, rows, fields){
     if (err) {
       res.send(err);
     } else {

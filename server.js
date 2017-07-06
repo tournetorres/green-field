@@ -61,6 +61,17 @@ app.post('/bulletin', (req, res) => {
   });
   res.sendStatus(201);
 });
+app.post('/search', (req, res) => {
+  console.log(req.body.searchField, 'should be SEARCH field');
+  connection.query(`select * from petpost where address like '%${req.body.searchField}%' or message like '%${req.body.searchField}%'`, function(err, rows, fields){
+    if (err) {
+      res.send(err);
+    } else {
+      console.log(rows, 'in search');
+      res.send(rows);
+    }
+  });
+});
 
 app.post('/tokensignin', function (req, res) {
   client.verifyIdToken(

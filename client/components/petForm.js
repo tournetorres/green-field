@@ -7,6 +7,23 @@ angular.module('pet-detective')
     this.type;
     this.latlong;
     this.img;
+    this.fetchSearchResults = function (search) {
+      return $http({
+        url: '/search',
+        method: 'POST',
+        data: {   
+          searchField: search,
+        },
+      })
+        .then((response) => {
+          console.log(response.data, 'data in search factory');
+          this.bulletinData = response.data;
+          console.log(this.searchResults, 'in here ');
+          this.createMap();
+        }, (err) => {
+          console.error(err);
+        });
+    };
     this.render = async function () {
       this.bulletinData = await formDataFactory.fetchFormData();
       console.log(this.bulletinData, 'bulletin data');
@@ -29,10 +46,7 @@ angular.module('pet-detective')
     };
 
     this.submit = function (place, formBody, img) {
-      console.log(this)
-      console.log(img, 'image god damn it');
-      console.log(window.imgSrc);
-      this.date = new Date().toString();
+      this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
       $http({
         url: '/bulletin',
         method: 'POST',

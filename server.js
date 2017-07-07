@@ -62,9 +62,9 @@ app.post('/bulletin', (req, res) => {
   res.sendStatus(201);
 });
 
-app.get('/search', (req, res) => {
-  console.log(req.params, 'should be SEARCH field');
-  connection.query(`select * from petpost where address like '%${req.body.searchField}%' or message like '%${req.body.searchField}%' or type like '%${req.body.searchField}%' or date like'%${req.body.searchField}%'`, function(err, rows, fields){
+app.post('/search', (req, res) => {
+  console.log(req.body, 'should be SEARCH field');
+  connection.query(`select * from petpost where address like '%${req.body.searchField}%' or message like '%${req.body.searchField}%' or type like '%${req.body.searchField}%' or date like'%${req.body.searchField}%' or lostOrFound like '%${req.body.searchField}%'`, function (err, rows) {
     if (err) {
       res.send(err);
     } else {

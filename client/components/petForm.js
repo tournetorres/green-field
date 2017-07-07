@@ -7,6 +7,7 @@ angular.module('pet-detective')
     this.type;
     this.latlong;
     this.img;
+
     this.fetchSearchResults = function (search) {
       return $http({
         url: '/search',
@@ -21,36 +22,34 @@ angular.module('pet-detective')
           console.log(this.searchResults, 'in here ');
           this.createMap();
         }, (err) => {
-          console.error(err, 'error searching for pet controller');
+          console.error(err);
         });
     };
+
     this.render = async function () {
       this.bulletinData = await formDataFactory.fetchFormData();
       console.log(this.bulletinData, 'bulletin data');
       this.createMap();
       return this.bulletinData;
     };
+
     this.data = {
       singleSelect: null,
       multipleSelect: [],
+      option1: 'Cat',
+      option2: 'Dog',
     };
+
     this.petState = {
       lostOrFound: null,
       multipleSelect: [],
+      option1: 'Lost',
+      option2: 'Found',
     };
 
-    this.getCheckList = function(size, color, breed)
-      this.checkListItems = [];
-      this.checkListItems.push(size, color, breed);
-      console.log(checkListItems);
-      return checkListItems;
-      
-    };
-
-
-    this.submit = function (place, formBody, img) {
-      console.log(this.petState.lostOrFound, 'check lost or found');
-      this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
+    this.submit = function (place, formBody, img, date) {
+      console.log(window.date, 'in window')
+      // this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
       $http({
         url: '/bulletin',
         method: 'POST',
@@ -61,7 +60,7 @@ angular.module('pet-detective')
           type: this.data.singleSelect,
           address: this.place.formatted_address,
           message: formBody,
-          date: this.date,
+          date: window.date,
           latlong: [this.place.geometry.location.lat(), this.place.geometry.location.lng()],
           petPic: window.imgSrc,
         },

@@ -117,9 +117,11 @@ angular.module('pet-detective')
         let sco = this;
         let map = this.mymapdetail;
         let marker = this.mymarker
+        let img = this.bulletinData[i].petPic;
         google.maps.event.addListener(sco.mymarker, 'click' ,function() {
           var infowindow = new google.maps.InfoWindow({
-            content: sco.bulletinData[i].message
+            content: `<div>${sco.bulletinData[i].message}</div>
+                      <img src=${img} style="width:35px;length:35px"/>`
           });
           if (sco.open) {
             sco.open.close();

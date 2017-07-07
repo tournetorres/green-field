@@ -30,22 +30,26 @@ angular.module('pet-detective')
       this.createMap();
       return this.bulletinData;
     };
-
     this.data = {
       singleSelect: null,
       multipleSelect: [],
-      option1: 'Cat',
-      option2: 'Dog',
     };
-
     this.petState = {
       lostOrFound: null,
       multipleSelect: [],
-      option1: 'Lost',
-      option2: 'Found',
     };
 
+    this.getCheckList = function(size, color, breed)
+      this.checkListItems = [];
+      this.checkListItems.push(size, color, breed);
+      console.log(checkListItems);
+      return checkListItems;
+      
+    };
+
+
     this.submit = function (place, formBody, img) {
+      console.log(this.petState.lostOrFound, 'check lost or found');
       this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
       $http({
         url: '/bulletin',

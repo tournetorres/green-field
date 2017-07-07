@@ -7,6 +7,13 @@ angular.module('pet-detective')
     this.type;
     this.latlong;
     this.img;
+    this.render = async function () {
+      this.bulletinData = await formDataFactory.fetchFormData();
+      console.log(this.bulletinData, 'bulletin data');
+      this.createMap();
+      return this.bulletinData;
+    };
+
 
     this.fetchSearchResults = function (search) {
       return $http({

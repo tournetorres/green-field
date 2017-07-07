@@ -48,7 +48,7 @@ angular.module('pet-detective')
 
     this.submit = function (place, formBody, img, date) {
       console.log(window.date, 'in window')
-      // this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
+      this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
       $http({
         url: '/bulletin',
         method: 'POST',
@@ -59,7 +59,7 @@ angular.module('pet-detective')
           type: this.data.singleSelect,
           address: this.place.formatted_address,
           message: formBody,
-          date: window.date,
+          date: this.date,
           latlong: [this.place.geometry.location.lat(), this.place.geometry.location.lng()],
           petPic: window.imgSrc,
         },

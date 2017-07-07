@@ -3,12 +3,9 @@ const mysql = require('mysql');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
-const path = require('path');
 const GoogleAuth = require('google-auth-library');
-const request = require('request-promise');
 
 const app = express();
-
 const PORT = process.env.PORT;
 const DB = process.env.DB || 'localhost';
 
@@ -103,9 +100,8 @@ app.post('/tokensignin', function (req, res) {
 });
 
 app.post('/deletePost', (req, res) => {
-  // console.log(req.body, 'deleted body');
   connection.query(`select * from petpost where user='${req.body.user}' and message='${req.body.message}'`, (err, data) => {
-    if(err){console.error(err)}
+    if (err) { console.error(err); }
     if (data.length) {
       connection.query(`DELETE from petpost where user='${req.body.user}' and message='${req.body.message}'`);
       res.send(data);

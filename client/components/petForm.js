@@ -2,8 +2,8 @@ angular.module('pet-detective')
   .controller('petFormController', function ($http, $window, formDataFactory) {
     this.profileInfo = JSON.parse(localStorage.getItem('userProfile'));
     this.email = localStorage.getItem('userEmail');
-    this.place = null;
-    this.formBody;
+    this.place = '';
+    this.formBody = '';
     this.type;
     this.latlong;
     this.img;
@@ -41,22 +41,26 @@ angular.module('pet-detective')
     };
 
     this.data = {
-      singleSelect: null,
+      singleSelect: '',
       multipleSelect: [],
       option1: 'Cat',
       option2: 'Dog',
     };
 
     this.petState = {
-      lostOrFound: null,
+      lostOrFound: '',
       multipleSelect: [],
       option1: 'Lost',
       option2: 'Found',
     };
 
-    this.submit = function (place, formBody, img, date) {
-      console.log(window.date, 'in window')
-      // this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
+    this.petStyles = {
+      multipleSelect: [],
+    }
+
+    this.submit = function (place, formBody, img, date, style) {
+      console.log(this.petStyles.multipleSelect, 'loggin array of object pet styles');
+      this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
       $http({
         url: '/bulletin',
         method: 'POST',
@@ -67,7 +71,8 @@ angular.module('pet-detective')
           type: this.data.singleSelect,
           address: this.place.formatted_address,
           message: formBody,
-          date: window.date,
+          date: this.date,
+          styles: this.petStyles.multipleSelect,
           latlong: [this.place.geometry.location.lat(), this.place.geometry.location.lng()],
           petPic: window.imgSrc,
         },
@@ -85,6 +90,7 @@ angular.module('pet-detective')
           this.formBody = null;
           this.address = null;
           this.img = null;
+          this.styles = null;
           this.createMap();
         });
     };

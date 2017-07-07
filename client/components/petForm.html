@@ -188,11 +188,55 @@ h4 {
                           <textarea style="height: 50px;" ng-model="ctrl.formBody" id="userPassword" class="form-control input-sm chat-input" placeholder="Animal Details" rows="2" required=""/>
                         </div>
                       </div>
-                  <!--<div class="check-box">
-                    <label style="color: white">Check all that apply</label>
-                    <input 
-                  </div>      -->
-                <!--<div ng-init="imgSrc" ng-model="ctrl.img">{{ctrl.img}}</div>-->
+
+                  <div class="select-box">
+                    <label style="color: white">Select all that apply</label>
+                    <br>
+                      <select name="multipleSelect" id="multipleSelect" style="width: 200px;" ng-model="ctrl.petStyles.multipleSelect" multiple>
+                        <option value="Size: Small ">
+                          <column>Size:</column>
+                          <column>Small</column>
+                        </option>  
+                        <option value="Size: Medium ">
+                          <column>Size:</column>
+                          <column>Medium</column>
+                        </option>  
+                        <option value="Size : Large ">
+                          <column>Size:</column>
+                          <column>Large</column>
+                        </option>
+                        <option value="White Coat ">
+                          <column>Color of Fur:</column>
+                          <column>White</column>
+                        </option>
+                        <option value="Brown Coat ">
+                          <column>Color of Fur:</column>
+                          <column>Brown</column>
+                        </option>
+                        <option value="Black Coat ">
+                          <column>Color of Fur:</column>
+                          <column>Black</column>
+                        </option>
+                        <option value="Female ">
+                          <column>Sex:</column>
+                          <column>Female</column>
+                        </option>
+                        <option value="Male ">
+                          <column>Sex:</column>
+                          <column>Male</column>
+                        </option>
+                        <option value="Spayed ">
+                          <column>Spayed</column>
+                        </option>
+                        <option value="Neutered ">
+                          <column>Neutered</column>
+                        </option>
+                      </select>
+
+
+
+
+                <div ng-init="imgSrc" ng-model="ctrl.img">{{ctrl.img}}</div>
                       <a href="#" id="upload_widget_opener" style="color:white">Upload Picture of your pet</a>
                       <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
                       <script type="text/javascript"> 
@@ -209,14 +253,13 @@ h4 {
                       </br>
                       <script>
                         document.getElementById('address').addEventListener('change', function(){
-                          date = new Date().toString()
-                          window.date = moment(date).calendar();
+                          window.date = moment().calendar();
                           console.log(window.date);
                         });
                       </script>
                   <div class="wrapper">
                     <span class="group-btn">     
-                      <a style="width: 400px" ng-disable="!myForm.$valid" ng-click="ctrl.submit(ctrl.address, ctrl.formBody, window.imgSrc, window.date)" href="#" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
+                      <a style="width: 400px" ng-disable="!myForm.$valid" ng-click="ctrl.submit(ctrl.address, ctrl.formBody, window.imgSrc, window.date, ctrl.petStyles)" href="#" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
                     </span>
                   </div>
                 </div>  
@@ -251,12 +294,13 @@ h4 {
     <script>
       $(".imaaage").on("click", function(e) {
         let target = e.currentTarget
-         $('#imagepreview').attr('src', $(target).attr('src')); // here asign the image to the modal when the user click the enlarge link
-         $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+        $('#imagepreview').attr('src', $(target).attr('src')); // here asign the image to the modal when the user click the enlarge link
+        $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
       });
     </script>
 <!--{{bulletin.message}}-->
     <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px; display: inline;">{{bulletin.message}}</div>
+    <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px; display: inline;">{{bulletin.styles}}</div>
     </br>
     </br>
     <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px; display: inline"><b>{{bulletin.lostOrFound}} Near:</b> {{bulletin.address}}</div>

@@ -223,27 +223,27 @@ h4 {
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
     <h4 style="font-size: 19px"><b>{{bulletin.date}}</b></h4>
-    <div ng-show={{bulletin.petPic}}>
-      <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
-    </div>
-    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">         
-            <img src="" id="imagepreview" style="width: 100%; height: auto" >
+    <div ng-if="bulletin.petPic !== 'undefined'">
+      <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block; border: 4px solid green"/>
+      <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">         
+              <img src="" id="imagepreview" style="width: 100%; height: auto" >
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <script>
       $(".imaaage").on("click", function(e) {
         console.log('hit')
         let target = e.currentTarget
-         $('#imagepreview').attr('src', $(target).attr('src')); // here asign the image to the modal when the user click the enlarge link
-         $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+        $('#imagepreview').attr('src', $(target).attr('src')); // here asign the image to the modal when the user click the enlarge link
+        $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
       });
     </script>
-
+    </div>  
+    
     <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px; display: inline;">{{bulletin.message}}</div>
     </br>
     </br>

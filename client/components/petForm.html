@@ -126,9 +126,9 @@ h4 {
       <div class="container">
         <div class="row">
           <div>
-          <h2>Search Pets by Neighborhood, etc</h2> 
+          <h2>Search Pets by Zipcode, Neighborhood, etc</h2> 
             <div id="custom-search-input">
-              <div class="input-group col-md-9">
+              <div class="input-group col-md-9" style="max-width:600px">
                 <input ng-model="ctrl.searchTerm" type="text"  class="form-control input-lg" placeholder="Search..." />
                 <span class="input-group-btn">
                   <button ng-click="ctrl.fetchSearchResults(ctrl.searchTerm)" class="btn btn-info btn-lg" type="button">
@@ -137,18 +137,22 @@ h4 {
                 </span>
               </div>
             </div>
-            <!--<div ng-controller="dispatchController"></div>
-            <static-map-dispatch></static-map-dispatch>-->
           </div>
         </div>
       </div>
     </div>
     <div class="row" >
         <div ng-init="ctrl.render()">
-            <div ng-controller="dispatchController"></div>
-            <static-map-dispatch></static-map-dispatch>
+          
               <div style="margin-top: 15px;" id="demo" class="collapse form-login">
               <!--<button style="border-radius: 15px" class="btn btn-info">-->
+
+        <!--<a data-toggle="collapse" data-target="#demo" style="width: 80%"class="btn btn-lg btn-success" href="#">
+        <i class="fa fa-pencil fa-2x pull-left"></i><span style="font-size: 25px">Pet Found/Lost?</span></a>-->
+
+
+
+
                 <form name="myForm">  
                 <h4>Hi, Pet Detective!</h4>
                   <label style="color: white" for="lostOrFound" required=""> Choose Lost or Found: </label><br>
@@ -228,8 +232,11 @@ h4 {
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
     <h4 style="font-size: 19px"><b>{{bulletin.date}} </b></h4>
-      <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
+      <!--<img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
     <div ng-show="{{bulletin.petPic}}">
+    </div>-->
+    <div ng-if="bulletin.petPic !== 'undefined'">
+      <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
     </div>
     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">

@@ -251,12 +251,13 @@ h4 {
                       </script>
                       <img ng-src={{$window.imgSrc}} />
                       </br>
-                      <script>
+                      <!--<script>
                         document.getElementById('address').addEventListener('change', function(){
-                          window.date = moment().calendar();
+                          // date = new Date().toString()
+                          window.date = moment();
                           console.log(window.date);
                         });
-                      </script>
+                      </script>-->
                   <div class="wrapper">
                     <span class="group-btn">     
                       <a style="width: 400px" ng-disable="!myForm.$valid" ng-click="ctrl.submit(ctrl.address, ctrl.formBody, window.imgSrc, window.date, ctrl.petStyles)" href="#" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
@@ -273,37 +274,28 @@ h4 {
     </button>
   </div>
   <div style="border-radius: 10px;color: gray; padding: 15px;margin-top: 5px;background-color:lightgray; height:auto">
-
     <img style="border-radius: 50px; height: 70px" ng-src="{{bulletin.userpic}}" />
     <a id="email" ng-href="mailto:{{bulletin.user}}">email</a>
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
     <h4 style="font-size: 19px"><b>{{bulletin.date}}</b></h4>
-    <div ng-if="bulletin.petPic !== 'undefined'">
-      <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
+    <div ng-if="bulletin.petPic !== 'undefined'" >
+      <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block; border: 4px solid green" ng-click="ctrl.modal(bulletin.petPic)"/>
     </div>
-    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">         
-            <img src="" id="imagepreview" style="width: 100%; height: auto" >
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      $(".imaaage").on("click", function(e) {
-        let target = e.currentTarget
-        $('#imagepreview').attr('src', $(target).attr('src')); // here asign the image to the modal when the user click the enlarge link
-        $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
-      });
-    </script>
-<!--{{bulletin.message}}-->
     <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px; display: inline;">{{bulletin.message}}</div>
     <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px; display: inline;">{{bulletin.styles}}</div>
     </br>
     </br>
-    <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px; display: inline"><b>{{bulletin.lostOrFound}} Near:</b> {{bulletin.address}}</div>
-  
-    </div>
+    <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px; display: inline"><b>{{bulletin.lostOrFound}} Near:</b> {{bulletin.address}}</div>  
+  </div>
 </div>
+  <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">         
+          <img src="" id="imagepreview" style="width: 100%; height: auto" >
+        </div>
+      </div>
+    </div>
+  </div>
+

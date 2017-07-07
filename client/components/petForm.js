@@ -7,6 +7,7 @@ angular.module('pet-detective')
     this.type;
     this.latlong;
     this.img;
+
     this.fetchSearchResults = function (search) {
       return $http({
         url: '/search',
@@ -24,9 +25,9 @@ angular.module('pet-detective')
           console.error(err);
         });
     };
+
     this.render = async function () {
       this.bulletinData = await formDataFactory.fetchFormData();
-      console.log(this.bulletinData, 'bulletin data');
       this.createMap();
       return this.bulletinData;
     };
@@ -45,8 +46,9 @@ angular.module('pet-detective')
       option2: 'Found',
     };
 
-    this.submit = function (place, formBody, img) {
-      this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
+    this.submit = function (place, formBody, img, date) {
+      console.log(window.date, 'in window')
+      // this.date = new Date().toString().split(' ').splice(1, 3).join(' ');
       $http({
         url: '/bulletin',
         method: 'POST',
@@ -57,7 +59,7 @@ angular.module('pet-detective')
           type: this.data.singleSelect,
           address: this.place.formatted_address,
           message: formBody,
-          date: this.date,
+          date: window.date,
           latlong: [this.place.geometry.location.lat(), this.place.geometry.location.lng()],
           petPic: window.imgSrc,
         },
@@ -113,13 +115,14 @@ angular.module('pet-detective')
           });
         };
         this.addMarker();
-        console.log(this.mymarker);
         let sco = this;
         let map = this.mymapdetail;
         let marker = this.mymarker
+        let img = this.bulletinData[i].petPic;
         google.maps.event.addListener(sco.mymarker, 'click' ,function() {
           var infowindow = new google.maps.InfoWindow({
-            content: sco.bulletinData[i].message
+            content: `<div>${sco.bulletinData[i].message}</div>
+                      <img src=${img} style="width:35px;length:35px"/>`
           });
           if (sco.open) {
             sco.open.close();
@@ -143,6 +146,11 @@ angular.module('pet-detective')
           this.createMap();
         });
     };
+    this.modal = (img) => {
+      console.log('hit')
+      $('#imagepreview').attr('src', img); // here asign the image to the modal when the user click the enlarge link
+      $('#imagemodal').modal('show');
+    }
   })
   .directive('petForm', function petFormDirective() {
     return {

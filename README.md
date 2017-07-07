@@ -51,13 +51,9 @@ To start the app run: `npm start`
 
 See CONTRIBUTING.md for contribution guidelines.
 
-![img](https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png)
-
-![img](http://kartikgola.com/wp-content/uploads/2017/02/express3.png)
-
-
+![img](http://www.pngall.com/wp-content/uploads/2016/05/MySQL-Logo.png)
+![img](https://i1.wp.com/www.helloworldforbeginners.com/wp-content/uploads/2017/01/node-express.png?resize=365%2C201)
 ![img](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-BLdbYkpNZFei4Ok3tusGUT6hl3sy-QEHWuWPAIugq4cEoq3e)
-
 ![img](http://topdogsocialmedia.com/wp-content/uploads/2012/01/Google-Places-Listing.png)
-
 ![img](https://www.digitalocean.com/assets/media/logos-badges/png/DO_Logo_Vertical_Blue-6321464d.png)
+![img](https://cloudinary-res.cloudinary.com/image/upload/c_scale,fl_attachment,w_500/v1/logo/for_white_bg/cloudinary_vertical_logo_for_white_bg.png)

@@ -1,13 +1,13 @@
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <style>
   @import url(http://fonts.googleapis.com/css?family=Roboto:400);
 body {
     -webkit-font-smoothing: antialiased;
     font: normal 20px Roboto,arial,sans-serif;
 }
-
 .form-login {
     background-color: gray;
     padding-top: 10px;
@@ -19,7 +19,6 @@ body {
     border-width: 2px;
     box-shadow:0 2 px 0 #cfcfcf;
 }
-
 h4 { 
     border:0 solid #fff; 
     border-bottom-width:1px;
@@ -28,15 +27,12 @@ h4 {
     text-align: center;
     color: white;
 }
-
 .form-control {
     border-radius: 5px;
 }
-
 .wrapper {
     text-align: center;
 }
-
 .pac-container {
     background-color: #fff;
     position: absolute !important;
@@ -130,9 +126,9 @@ h4 {
       <div class="container">
         <div class="row">
           <div>
-          <h2>Search Pets by Neighborhood, etc</h2> 
+          <h2>Search Pets by Zipcode, Neighborhood, etc</h2> 
             <div id="custom-search-input">
-              <div class="input-group col-md-9">
+              <div class="input-group col-md-9" style="max-width:600px">
                 <input ng-model="ctrl.searchTerm" type="text"  class="form-control input-lg" placeholder="Search..." />
                 <span class="input-group-btn">
                   <button ng-click="ctrl.fetchSearchResults(ctrl.searchTerm)" class="btn btn-info btn-lg" type="button">
@@ -147,68 +143,82 @@ h4 {
     </div>
     <div class="row" >
         <div ng-init="ctrl.render()">
-
-            <div ng-controller="dispatchController"></div>
-
-            <div style="margin-top: 15px;" id="demo" class="collapse form-login">
+          <div ng-controller="dispatchController">
+          
+              <div style="margin-top: 15px;" id="demo" class="collapse form-login">
               <!--<button style="border-radius: 15px" class="btn btn-info">-->
-              <h4>Hi, Pet Detective!</h4>
-                <label style="color: white" for="lostOrFound"> Choose Lost or Found: </label><br>
-                  <select name="lostOrFound" ng-model="ctrl.petState.lostOrFound">
-                    <option ng-model="ctrl.petState.lostOrFound" value="{{ctrl.petState.option1}}">Lost</option>
-                    <option ng-model="ctrl.petState.lostOrFound" value="{{ctrl.petState.option2}}">Found</option>
-                  </select>
-                  <tt style="color: white">{{ctrl.petState.lostOrFound}} Pet</tt>
-                  <br>
-                  <br>
-                <label style="color: white" style="color: white" for="singleSelect"> Choose Animal Type: </label><br>
-                <select name="singleSelect" ng-model="ctrl.data.singleSelect">
-                  <option ng-model="ctrl.data.singleSelect" value="{{ctrl.data.option1}}">Cat</option>
-                  <option ng-model="ctrl.data.singleSelect" value="{{ctrl.data.option2}}">Dog</option>
-                </select>
-                <tt style="color: white">  Type of Pet: {{ctrl.data.singleSelect}}</tt>
 
-                <div class="form-group">
+        <!--<a data-toggle="collapse" data-target="#demo" style="width: 80%"class="btn btn-lg btn-success" href="#">
+        <i class="fa fa-pencil fa-2x pull-left"></i><span style="font-size: 25px">Pet Found/Lost?</span></a>-->
+
+
+
+
+                <form name="myForm">  
+                <h4>Hi, Pet Detective!</h4>
+                  <label style="color: white" for="lostOrFound" required=""> Choose Lost or Found: </label><br>
+                    <select name="lostOrFound" ng-model="ctrl.petState.lostOrFound">
+                      <option ng-model="ctrl.petState.lostOrFound" value="Lost">Lost</option>
+                      <option ng-model="ctrl.petState.lostOrFound" value="Found">Found</option>
+                          <i ng-hide="ctrl.petState.lostOrFound.$error.required">*required</i><br>
+                    </select>
+                    <tt style="color: white">{{ctrl.petState.lostOrFound}} Pet</tt>
                   <br>
-                  <label style="color: white" for="inlineFormInputGroup">Last Seen: Enter Address or Nearby Business</label>
-                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <div class="input-group-addon">+</div>
-                    <div>
-                    <input type="text" id="address" g-places-autocomplete ng-model="ctrl.place" id="searchTextField" class="form-control input-large chat-input" placeholder="Start Typing Address..." />
-                    </div>
-                  </div>
-                </div>
+                  <br>
+                  <label style="color: white" style="color: white" for="singleSelect"> Choose Animal Type: </label><br>
+                    <select name="singleSelect" ng-model="ctrl.data.singleSelect">
+                      <option ng-model="ctrl.data.singleSelect" value="Cat">Cat</option>
+                      <option ng-model="ctrl.data.singleSelect" value="Dog">Dog</option>
+                    </select>
+                    <tt style="color: white">  Type of Pet: {{ctrl.data.singleSelect}}</tt>
+                  <div class="form-group">
+                  <br>
+                    <label style="color: white" for="inlineFormInputGroup">Last Seen: Enter Address or Nearby Business</label>
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon">+</div>
+                          <div>
+                    <input type="text" id="address" required="" g-places-autocomplete ng-model="ctrl.place" id="searchTextField" class="form-control input-large chat-input" placeholder="Start Typing Address..." />
+                          </div>
+                        </div>
+                      </div>
           <!--<div class="here"></div>-->
-                <div class="form-group">
-                  <label style="color: white">Enter Animal Details</label>
-                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <div class="input-group-addon">+</div>
-                    <textarea style="height: 50px;" ng-model="ctrl.formBody" id="userPassword" class="form-control input-sm chat-input" placeholder="Animal Details" rows="2" />
-                  </div>
-                </div>
+                  <div class="form-group">
+                    <label style="color: white">Enter Animal Details</label>
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon">+</div>
+                          <textarea style="height: 50px;" ng-model="ctrl.formBody" id="userPassword" class="form-control input-sm chat-input" placeholder="Animal Details" rows="2" required=""/>
+                        </div>
+                      </div>
                 <!--<div ng-init="imgSrc" ng-model="ctrl.img">{{ctrl.img}}</div>-->
-                <a href="#" id="upload_widget_opener">Upload Picture of your pet</a>
-                <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
-
-                <script type="text/javascript"> 
-                  document.getElementById("upload_widget_opener").addEventListener("click", function() {
-                    cloudinary.openUploadWidget({ cloud_name: 'rose8190', upload_preset: 'ipcueltn'}, 
-                      function(error, result) { console.log(error, result) 
-                        window.imgSrc = result[0].secure_url;
-                        img = result[0].secure_url;
-                        console.log(window.imgSrc);
-                      });
-                  }, false);
-                </script>
-                <img ng-src={{$window.imgSrc}} />
-                </br>
-                <div class="wrapper">
-                  <span class="group-btn">     
-                    <a style="width: 400px" ng-click="ctrl.submit(ctrl.address, ctrl.formBody, window.imgSrc)" href="#" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
-                  </span>
-                </div>
-            </div>  
-          </div>
+                      <a href="#" id="upload_widget_opener" style="color:white">Upload Picture of your pet</a>
+                      <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
+                      <script type="text/javascript"> 
+                        document.getElementById("upload_widget_opener").addEventListener("click", function() {
+                          cloudinary.openUploadWidget({ cloud_name: 'rose8190', upload_preset: 'ipcueltn'}, 
+                            function(error, result) { console.log(error, result, 'upload info') 
+                              window.imgSrc = result[0].secure_url;
+                              img = result[0].secure_url;
+                              console.log(window.imgSrc, 'in petform.html');
+                            });
+                        }, false);
+                      </script>
+                      <img ng-src={{$window.imgSrc}} />
+                      </br>
+                      <script>
+                        document.getElementById('address').addEventListener('change', function(){
+                          date = new Date().toString()
+                          window.date = moment(date).calendar();
+                          console.log(window.date);
+                        });
+                      </script>
+                  <div class="wrapper">
+                    <span class="group-btn">     
+                      <a style="width: 400px" ng-disable="!myForm.$valid" ng-click="ctrl.submit(ctrl.address, ctrl.formBody, window.imgSrc, window.date)" href="#" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
+                    </span>
+                  </div>
+                </div>  
+              </div>
+            </form>
           
 <div ng-repeat="bulletin in ctrl.bulletinData | orderBy:'$index':true" style="border-radius: 10px;color: white; padding: 15px;margin-top: 10px;background-color:gray; height:auto" ng-click="ctrl.bullClick(bulletin)">
   <div ng-if="bulletin.user === ctrl.email">
@@ -223,6 +233,7 @@ h4 {
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
     <h4 style="font-size: 19px"><b>{{bulletin.date}}</b></h4>
+<<<<<<< HEAD
     <div ng-if="bulletin.petPic !== 'undefined'">
       <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block; border: 4px solid green"/>
       <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -252,4 +263,28 @@ h4 {
     </div>
 </div>
   
+=======
+    <div ng-if="bulletin.petPic !== 'undefined'" >
+      <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block" ng-click="ctrl.modal(bulletin.petPic)"/>
+    </div>
+
+<!--{{bulletin.message}}-->
+    <div style="font-size: 25px;border-radius: 10px;background-color: white; height: 100px;padding: 5px; display: inline;">{{bulletin.message}}</div>
+    </br>
+    </br>
+    <div style="border-radius: 10px;font-size: 19px; color: white;background-color: gray; height: 50px; margin-top: 10px;padding: 5px; display: inline"><b>{{bulletin.lostOrFound}} Near:</b> {{bulletin.address}}</div>
+  
+    </div>
+</div>
+
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">         
+            <img src="" id="imagepreview" style="width: 100%; height: auto" >
+          </div>
+        </div>
+      </div>
+    </div>
+>>>>>>> 98eed9aa558f9cf54cfb0646e06dac53252075ea
 

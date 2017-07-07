@@ -28,7 +28,6 @@ angular.module('pet-detective')
 
     this.render = async function () {
       this.bulletinData = await formDataFactory.fetchFormData();
-      console.log(this.bulletinData, 'bulletin data');
       this.createMap();
       return this.bulletinData;
     };
@@ -147,6 +146,11 @@ angular.module('pet-detective')
           this.createMap();
         });
     };
+    this.modal = (img) => {
+      console.log('hit')
+      $('#imagepreview').attr('src', img); // here asign the image to the modal when the user click the enlarge link
+      $('#imagemodal').modal('show');
+    }
   })
   .directive('petForm', function petFormDirective() {
     return {

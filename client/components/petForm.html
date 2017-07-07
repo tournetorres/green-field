@@ -235,10 +235,7 @@ h4 {
     <a id="email" ng-href="mailto:{{bulletin.user}}">email</a>
     <h2 style="padding: 5px; float:right">{{bulletin.type}}</h2>
     <h2 style="color: green; padding: 5px; float:right">{{bulletin.lostOrFound}}</h2>
-    <h4 style="font-size: 19px"><b>{{bulletin.date}} </b></h4>
-      <!--<img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
-    <div ng-show="{{bulletin.petPic}}">
-    </div>-->
+    <h4 style="font-size: 19px"><b>{{bulletin.date}}</b></h4>
     <div ng-if="bulletin.petPic !== 'undefined'">
       <img class="imaaage" src="{{bulletin.petPic}}" style="height:100px;width:100px;float:right; display: block"/>
     </div>
@@ -253,7 +250,6 @@ h4 {
     </div>
     <script>
       $(".imaaage").on("click", function(e) {
-        console.log('hit')
         let target = e.currentTarget
          $('#imagepreview').attr('src', $(target).attr('src')); // here asign the image to the modal when the user click the enlarge link
          $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function

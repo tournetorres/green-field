@@ -12,10 +12,11 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
   </head>
   <nav class="navbar navbar-default">
   <div class="container">
-    <div style="background-color: green">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -38,6 +39,7 @@
     </div>
   </div>
   </nav>
+
   <body style="background-color: #008000;" ng-app="pet-detective">
     <script>
     // localStorage token does not equal null
@@ -79,10 +81,10 @@
         }
     </script>
     <div class="container">
-      <h1 style="color: white; display:none">Hello, Pet Detective!</h1>
+      <!--<h1 style="color: white; display:none">Hello, Pet Detective!</h1>-->
       <div class="row">
         <div ng-controller="appController">
-          <div class="col-md-13" ng-controller="dispatchController">
+          <div class="col-md-12" ng-controller="dispatchController">
             <dispatch></dispatch>
           </div>
 
@@ -102,7 +104,6 @@
     <script src="components/fetchCoords.js"></script>
     <script src="components/dispatch.js"></script>
     <script src="components/staticMapDispatch.js"></script>
-    <script src="components/search.js"></script>
     <script src="components/petForm.js"></script>
     <script src="components/fetchFormData.js"></script>
 

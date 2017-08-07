@@ -38,13 +38,4 @@ To start the app run: `npm start`
 
 See CONTRIBUTING.md for contribution guidelines.
 
-![img](https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png)
-
-![img](http://kartikgola.com/wp-content/uploads/2017/02/express3.png)
-
-
-![img](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-BLdbYkpNZFei4Ok3tusGUT6hl3sy-QEHWuWPAIugq4cEoq3e)
-
-![img](http://topdogsocialmedia.com/wp-content/uploads/2012/01/Google-Places-Listing.png)
-
-![img](https://www.digitalocean.com/assets/media/logos-badges/png/DO_Logo_Vertical_Blue-6321464d.png)
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png" width="20%"/><img src="http://kartikgola.com/wp-content/uploads/2017/02/express3.png" width="20%"/><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-BLdbYkpNZFei4Ok3tusGUT6hl3sy-QEHWuWPAIugq4cEoq3e" width="20%"/><img src="http://topdogsocialmedia.com/wp-content/uploads/2012/01/Google-Places-Listing.png" width="20%"/><img src="https://www.digitalocean.com/assets/media/logos-badges/png/DO_Logo_Vertical_Blue-6321464d.png" width="20%"/>

@@ -8,13 +8,6 @@ The app that helps the hunt for lost pets!
 Product Owner: Tourne Torres
 Scrum Master: Daniel Weill
 Development Team Members: Tourne Torres, Taijon Robinson, Daniel Weill
-Table of Contents
-
-# Usage
-## Requirements
-## Installing Dependencies
-## Tasks
-## Contributing
 
 ## Some usage instructions
 ## Requirements

@@ -1,8 +1,9 @@
 <img src="https://www.shareicon.net/data/512x512/2015/10/10/653854_print_512x512.png" width="30%" />
+
 # Pet-Detective
 The app that helps the hunt for lost pets!
-# Team
-Copypasta
+## Team
+### Copypasta
 
 Product Owner: Tourne Torres
 Scrum Master: Daniel Weill

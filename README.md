@@ -22,7 +22,13 @@ window.PLACES_API_KEY = 'YOUR PLACES API KEY';
 
 Create a .env file in your root directory to store port and database variables. Localhost will suffice for db in most cases
 
-You will need a database called petdetective, created in a mysql session. Once used, create a table called petpost with the following command: `create table petpost (id integer not null auto_increment, lostOrFound varchar(20), type varchar(20) , address varchar(140), message varchar(140), date varchar(140), latlong varchar(140), primary key (id));`
+You will need a database called petdetective, created in a mysql session. Once used, create a table called petpost with the following command: 
+
+`create table petpost (id integer not null auto_increment, lostOrFound varchar(20), type varchar(20) , styles varchar(200), address varchar(140), message varchar(140), date varchar(140), latlong varchar(140), user varchar(75), petPic varchar(220), primary key (id), userpic varchar(220));`
+
+And create a users table with the following:
+
+`create table users ( email varchar(75) NOT NULL UNIQUE, picture varchar(220), first_name varchar(25), last_name varchar(25));`
 
 ## Installing Dependencies
 
@@ -38,6 +44,9 @@ To start the app run: `npm start`
 
 See CONTRIBUTING.md for contribution guidelines.
 
-## Tech Stack
-
-<img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png" width="20%"/><img src="http://kartikgola.com/wp-content/uploads/2017/02/express3.png" width="20%"/><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-BLdbYkpNZFei4Ok3tusGUT6hl3sy-QEHWuWPAIugq4cEoq3e" width="20%"/><img src="http://topdogsocialmedia.com/wp-content/uploads/2012/01/Google-Places-Listing.png" width="20%"/><img src="https://www.digitalocean.com/assets/media/logos-badges/png/DO_Logo_Vertical_Blue-6321464d.png" width="20%"/>
+![img](http://www.pngall.com/wp-content/uploads/2016/05/MySQL-Logo.png)
+![img](https://i1.wp.com/www.helloworldforbeginners.com/wp-content/uploads/2017/01/node-express.png?resize=365%2C201)
+![img](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-BLdbYkpNZFei4Ok3tusGUT6hl3sy-QEHWuWPAIugq4cEoq3e)
+![img](http://topdogsocialmedia.com/wp-content/uploads/2012/01/Google-Places-Listing.png)
+![img](https://www.digitalocean.com/assets/media/logos-badges/png/DO_Logo_Vertical_Blue-6321464d.png)
+![img](https://cloudinary-res.cloudinary.com/image/upload/c_scale,fl_attachment,w_500/v1/logo/for_white_bg/cloudinary_vertical_logo_for_white_bg.png)

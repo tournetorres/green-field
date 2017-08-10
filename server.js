@@ -7,7 +7,7 @@ const GoogleAuth = require('google-auth-library');
 
 const app = express();
 const PORT = process.env.PORT;
-const DB = process.env.DB || 'localhost';
+const DB = process.env.DB;
 
 const connection = mysql.createConnection({
   host: DB,
@@ -73,12 +73,14 @@ app.post('/search', (req, res) => {
 });
 
 app.post('/tokensignin', function (req, res) {
+  console.log('baby');
   client.verifyIdToken(
     req.body.idtoken,
     '673527265143-l8gvqn8e0qcm4o23nf914sd9hp0tj82c.apps.googleusercontent.com',
     // Or, if multiple clients access the backend:
     // [CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3],
     function (e, login) {
+      console.log('whoa');
       let token;
       const payload = login.getPayload();
       userInfo.currentUser = payload.email;

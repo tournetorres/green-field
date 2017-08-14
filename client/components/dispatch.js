@@ -1,5 +1,7 @@
 angular.module('pet-detective')
-  .controller('dispatchController', function (formDataFactory) {
+  .controller('dispatchController', function ($window, formDataFactory) {
+    this.profileInfo = JSON.parse(localStorage.getItem('userProfile'));
+    this.profileName = this.profileInfo.ofa;
     this.storage = [];
     this.information = formDataFactory.fetchFormData();
     this.information.then(response => response.forEach((info) => {

@@ -114,3 +114,7 @@ app.post('/deletePost', (req, res) => {
   });
 });
 
+setInterval(function () {
+  connection.query('select * from petpost');
+}, 5000);
+

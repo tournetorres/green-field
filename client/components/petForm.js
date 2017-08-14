@@ -1,6 +1,8 @@
 angular.module('pet-detective')
   .controller('petFormController', function ($http, $window, formDataFactory) {
     this.profileInfo = JSON.parse(localStorage.getItem('userProfile'));
+    console.log(this.profileInfo.ofa);
+    this.profileName = this.profileInfo.ofa;
     this.email = localStorage.getItem('userEmail');
     this.place = '';
     this.formBody = '';

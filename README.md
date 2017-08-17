@@ -44,9 +44,4 @@ To start the app run: `npm start`
 
 See CONTRIBUTING.md for contribution guidelines.
 
-![img](http://www.pngall.com/wp-content/uploads/2016/05/MySQL-Logo.png)
-![img](https://i1.wp.com/www.helloworldforbeginners.com/wp-content/uploads/2017/01/node-express.png?resize=365%2C201)
-![img](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-BLdbYkpNZFei4Ok3tusGUT6hl3sy-QEHWuWPAIugq4cEoq3e)
-![img](http://topdogsocialmedia.com/wp-content/uploads/2012/01/Google-Places-Listing.png)
-![img](https://www.digitalocean.com/assets/media/logos-badges/png/DO_Logo_Vertical_Blue-6321464d.png)
-![img](https://cloudinary-res.cloudinary.com/image/upload/c_scale,fl_attachment,w_500/v1/logo/for_white_bg/cloudinary_vertical_logo_for_white_bg.png)
+<img src="http://www.pngall.com/wp-content/uploads/2016/05/MySQL-Logo.png" width="20%"><img src="https://i1.wp.com/www.helloworldforbeginners.com/wp-content/uploads/2017/01/node-express.png?resize=365%2C201" width="20%"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-BLdbYkpNZFei4Ok3tusGUT6hl3sy-QEHWuWPAIugq4cEoq3e" width="20%"><img src="http://topdogsocialmedia.com/wp-content/uploads/2012/01/Google-Places-Listing.png" width="20%"><img src="https://www.digitalocean.com/assets/media/logos-badges/png/DO_Logo_Vertical_Blue-6321464d.png" width="20%"><img src="https://cloudinary-res.cloudinary.com/image/upload/c_scale,fl_attachment,w_500/v1/logo/for_white_bg/cloudinary_vertical_logo_for_white_bg.png" width="20%">

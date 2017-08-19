@@ -48,7 +48,7 @@ angular.module('pet-detective')
       scope: {
       },
       restrict: 'E',
-      template: "<div class='col' ng-model='ctrl.mymarker' id='map-canvas'></div>",
+      template: "<div style='border: 3px solid #008000;' class='col' ng-model='ctrl.mymarker' id='map-canvas'></div>",
       controller: 'petFormController',
       controllerAs: 'ctrl',
       bindToController: true,

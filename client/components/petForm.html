@@ -144,7 +144,7 @@
 <div class="container">
   <div class="row">
 
-    <div style="margin-top:2%;font-family: Roboto, sans-serif;"id="addNew">
+    <div style="font-family: Roboto, sans-serif;"id="addNew">
 
         <div id="custom-search-input">
           <div class="input-group">
@@ -154,18 +154,16 @@
                     <i class="glyphicon glyphicon-search"></i> 
                   </button>
             </span>
-          </div>
         </div>
       </div>
     </div>
   </div>
-</row>
 
-<row>
-    <div class="col">
+<div class="row">
+    <!-- <div class="col"> -->
       <div ng-init="ctrl.render()">
         <div ng-controller="dispatchController">
-          <div style="margin-top: 15px;" id="demo" class="collapse form-login">
+          <div style="border: 3px solid #008000;" id="demo" class="collapse form-login">
             <!--<button style="border-radius: 15px" class="btn btn-info">-->
 
             <!--<a data-toggle="collapse" data-target="#demo" style="width: 80%"class="btn btn-lg btn-success" href="#">
@@ -292,21 +290,31 @@
                   <span class="group-btn">     
                       <a style="width: 100%" ng-disable="!myForm.$valid" ng-click="ctrl.submit(ctrl.address, ctrl.formBody, window.imgSrc, window.date, ctrl.petStyles)" href="#" style="margin-top: 3%" class="btn btn-primary btn-md">Submit Bulletin<i class="fa fa-sign-in"></i></a>
                   </span>
-            </form>
-        </div>
-      </div> 
+                </div>
+            </form> 
     </div>
   </div>
-</row>
-<row>
-</row>
-      <row>
-        <br>
+</div>
+</div>
+<!-- </div> -->
 
-        
-        <div class="col-md-12" ng-repeat="bulletin in ctrl.bulletinData | orderBy:'$index':true" style="background-color:lightgray;margin-bottom:3%;color: white; height:auto"
+<!-- <div class="row" >
+    <div class="col-md-4" ng-repeat-start="item in data">
+        I'M A ROW
+    </div>
+    <div class="clearfix" ng-if="($index+1)%3==0"></div>
+    <div ng-repeat-end=""></div>
+</div>
+<div class="row">
+ -->
+    <div class="row">
+        <div class="container">
+          <div class="row">
+
+    
+        <div class="col-lg-6" ng-repeat-start="bulletin in ctrl.bulletinData | orderBy:'$index':true" style="background-color:lightgray;color: white; height:auto; border: 3px solid #008000;"
           ng-click="ctrl.bullClick(bulletin)">
-          <div ng-if="bulletin.user === ctrl.email">
+          <div ng-if="($index+1)%2==0" ng-if="bulletin.user === ctrl.email">
             <button style="float: right; padding: 2% 1%" type="button" class="close" aria-label="Close" ng-click="ctrl.deletePost(bulletin)">
               <span style="top: 3px; right: 3px; position: absolute;" class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
             </button>
@@ -329,9 +337,13 @@
             <div style="color: black; font-size: 19px;"><b>Features: </b>{{bulletin.styles}}</div>
             </div>
             <div style="padding: 5px; max-height: 25%; background-color: gray;font-size: 19px; color: white;"><b>{{bulletin.lostOrFound}} Near:</b> {{bulletin.address}}</div>
+           
         </div>
-      </row>  
-    
+        <div ng-repeat-end=""></div>
+      </div>  
+    </div>
+  </div>
+
     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">

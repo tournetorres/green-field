@@ -15,7 +15,7 @@ angular.module('pet-detective')
 
       // set up map
       this.mapOptions = {
-        zoom: 12,
+        zoom: 7,
         center: new google.maps.LatLng(29.945947, -90.070023),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
       };
